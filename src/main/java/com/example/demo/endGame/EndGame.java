@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.endGame;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -31,7 +31,6 @@ public class EndGame {
         text.relocate(250,250);
         text.setFont(Font.font(80));
         root.getChildren().add(text);
-
 
         Text scoreText = new Text(score+"");
         scoreText.setFill(Color.BLACK);

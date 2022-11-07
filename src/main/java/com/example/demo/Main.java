@@ -1,20 +1,15 @@
 package com.example.demo;
 
+import com.example.demo.game.GameScene;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -45,6 +40,7 @@ public class Main extends Application {
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
         Group rankRoot = new Group();
         Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
+
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(background_fill);
 
@@ -66,6 +62,11 @@ public class Main extends Application {
         primaryStage.setScene(gameScene);
         GameScene game = new GameScene();
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
+
+        //set title
+        primaryStage.setTitle("2048 Game");
+        //set full screen
+        primaryStage.setFullScreen(true);
 
         primaryStage.show();
     }
