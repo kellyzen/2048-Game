@@ -4,4 +4,10 @@ module com.example.demo {
 
     opens com.example.demo to javafx.fxml;
     exports com.example.demo;
+    exports com.example.demo.endGame;
+    opens com.example.demo.endGame to javafx.fxml;
+    exports com.example.demo.game;
+    opens com.example.demo.game to javafx.fxml;
+    exports com.example.demo.account;
+    opens com.example.demo.account to javafx.fxml;
 }

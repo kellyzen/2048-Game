@@ -1,9 +1,19 @@
-package com.example.demo;
+package com.example.demo.game;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+
+/**
+ *
+ * Create text with specific font attributes and color.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 
 class TextMaker {
     private static TextMaker singleInstance = null;
@@ -18,6 +28,16 @@ class TextMaker {
         return singleInstance;
     }
 
+    /**
+     *
+     * create new text with specific font attributes and color
+     *
+     * @param input string text to be created
+     * @param xCell x-position of the cell
+     * @param yCell y-position of the cell
+     * @param root group root
+     *
+     */
     Text madeText(String input, double xCell, double yCell, Group root) {
         double length = GameScene.getLENGTH();
         double fontSize = (3 * length) / 7.0;
@@ -29,6 +49,14 @@ class TextMaker {
         return text;
     }
 
+    /**
+     *
+     * exchange two text values
+     *
+     * @param first first text value
+     * @param second second text value
+     *
+     */
     static void changeTwoText(Text first, Text second) {
         String temp;
         temp = first.getText();

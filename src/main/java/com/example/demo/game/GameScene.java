@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.game;
 
+import com.example.demo.endGame.EndGame;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -11,7 +12,17 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-class GameScene {
+/**
+ *
+ * Shows when the game started.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
+
+public class GameScene {
     private static int HEIGHT = 700;
     private static int n = 4;
     private final static int distanceBetweenCells = 10;
@@ -64,8 +75,8 @@ class GameScene {
         if (random.nextInt() % 2 == 0)
             putTwo = false;
         int xCell, yCell;
-            xCell = random.nextInt(aForBound+1);
-            yCell = random.nextInt(bForBound+1);
+        xCell = random.nextInt(aForBound+1);
+        yCell = random.nextInt(bForBound+1);
         if (putTwo) {
             text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
@@ -144,6 +155,12 @@ class GameScene {
         return -1;
     }
 
+    /**
+     *
+     * called when clicked 'a' or left arrow keyboard
+     * all cells in the board moves left
+     * calls moveHorizontally
+     */
     private void moveLeft() {
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n; j++) {
@@ -155,6 +172,12 @@ class GameScene {
         }
     }
 
+    /**
+     *
+     * called when clicked 'd' or right arrow keyboard
+     * all cells in the board moves right
+     * calls moveHorizontally
+     */
     private void moveRight() {
         for (int i = 0; i < n; i++) {
             for (int j = n - 1; j >= 0; j--) {
@@ -166,6 +189,12 @@ class GameScene {
         }
     }
 
+    /**
+     *
+     * called when clicked 'w' or up arrow keyboard
+     * all cells in the board moves upward
+     * calls moveVertically
+     */
     private void moveUp() {
         for (int j = 0; j < n; j++) {
             for (int i = 1; i < n; i++) {
@@ -178,6 +207,12 @@ class GameScene {
 
     }
 
+    /**
+     *
+     * called when clicked 's' or down arrow keyboard
+     * all cells in the board moves downward
+     * calls moveVertically
+     */
     private void moveDown() {
         for (int j = 0; j < n; j++) {
             for (int i = n - 1; i >= 0; i--) {
@@ -200,6 +235,19 @@ class GameScene {
         return false;
     }
 
+    /**
+     *
+     * Compares two tile's values together and if they are the same or if one is
+     * equal to 0 (plain tile) - their values are added (provided that the tiles
+     * we are comparing are two different tiles and they are moving towards the
+     * appropriate direction) - Uses recursion to go through the entire column
+     *
+     * @param i row that the compare tile is currently on
+     * @param j column that the compare tile is currently on
+     * @param des direction (up or down) that the tile is moving in
+     * @param sign change ltr
+     *
+     */
     private void moveHorizontally(int i, int j, int des, int sign) {
         if (isValidDesH(i, j, des, sign)) {
             cells[i][j].adder(cells[i][des + sign]);
@@ -256,7 +304,7 @@ class GameScene {
         }
     }
 
-    void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -281,31 +329,31 @@ class GameScene {
         randomFillNumber(1);
 
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
-                Platform.runLater(() -> {
-                    int haveEmptyCell;
-                    if (key.getCode() == KeyCode.DOWN) {
-                        GameScene.this.moveDown();
-                    } else if (key.getCode() == KeyCode.UP) {
-                        GameScene.this.moveUp();
-                    } else if (key.getCode() == KeyCode.LEFT) {
-                        GameScene.this.moveLeft();
-                    } else if (key.getCode() == KeyCode.RIGHT) {
-                        GameScene.this.moveRight();
-                    }
-                    GameScene.this.sumCellNumbersToScore();
-                    scoreText.setText(score + "");
-                    haveEmptyCell = GameScene.this.haveEmptyCell();
-                    if (haveEmptyCell == -1) {
-                        if (GameScene.this.canNotMove()) {
-                            primaryStage.setScene(endGameScene);
+            Platform.runLater(() -> {
+                int haveEmptyCell;
+                if (key.getCode() == KeyCode.DOWN) {
+                    GameScene.this.moveDown();
+                } else if (key.getCode() == KeyCode.UP) {
+                    GameScene.this.moveUp();
+                } else if (key.getCode() == KeyCode.LEFT) {
+                    GameScene.this.moveLeft();
+                } else if (key.getCode() == KeyCode.RIGHT) {
+                    GameScene.this.moveRight();
+                }
+                GameScene.this.sumCellNumbersToScore();
+                scoreText.setText(score + "");
+                haveEmptyCell = GameScene.this.haveEmptyCell();
+                if (haveEmptyCell == -1) {
+                    if (GameScene.this.canNotMove()) {
+                        primaryStage.setScene(endGameScene);
 
-                            EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                            root.getChildren().clear();
-                            score = 0;
-                        }
-                    } else if(haveEmptyCell == 1)
-                        GameScene.this.randomFillNumber(2);
-                });
+                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                        root.getChildren().clear();
+                        score = 0;
+                    }
+                } else if(haveEmptyCell == 1)
+                    GameScene.this.randomFillNumber(2);
             });
+        });
     }
 }
