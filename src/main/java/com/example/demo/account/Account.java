@@ -1,14 +1,17 @@
-package com.example.demo;
-
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
+package com.example.demo.account;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
+/**
+ *
+ * Saves user's account.
+ * Checks and compares the high score of users.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 
 public class Account implements Comparable<Account> {
     private long score = 0;

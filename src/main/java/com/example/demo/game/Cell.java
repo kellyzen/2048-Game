@@ -1,10 +1,21 @@
-package com.example.demo;
+package com.example.demo.game;
 
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+
+/**
+ *
+ * Represents an individual cell in the game.
+ * Set an integer value and color to each cell which will be changed when combined.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Nov 7, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 
 public class Cell {
     private Rectangle rectangle;
@@ -31,11 +42,17 @@ public class Cell {
         this.textClass = TextMaker.getSingleInstance().madeText("0", x, y, root);
         root.getChildren().add(rectangle);
     }
-
     void setTextClass(Text textClass) {
         this.textClass = textClass;
     }
 
+    /**
+     *
+     * change cell when moved
+     *
+     * @param cell cell to be changed
+     *
+     */
     void changeCell(Cell cell) {
         TextMaker.changeTwoText(textClass, cell.getTextClass());
         root.getChildren().remove(cell.getTextClass());
@@ -51,6 +68,13 @@ public class Cell {
         cell.setColorByNumber(cell.getNumber());
     }
 
+    /**
+     *
+     * add two integer values of the cells
+     *
+     * @param cell cell to be added/ combined
+     *
+     */
     void adder(Cell cell) {
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");
@@ -59,6 +83,13 @@ public class Cell {
         setColorByNumber(getNumber());
     }
 
+    /**
+     *
+     * set a color value to each cell based on its current integer value
+     *
+     * @param number current integer value of the cell
+     *
+     */
     void setColorByNumber(int number) {
         switch (number) {
             case 0:
@@ -96,8 +127,6 @@ public class Cell {
                 break;
             case 2048:
                 rectangle.setFill(Color.rgb(250,0,0,1));
-
-
         }
 
     }

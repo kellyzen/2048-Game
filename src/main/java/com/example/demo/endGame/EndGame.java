@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.endGame;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -14,6 +14,16 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
+/**
+ *
+ * Shows when the game ended either game over or won.
+ * Directs back to menu or quit game.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 
 public class EndGame {
     private static EndGame singleInstance = null;
@@ -26,12 +36,23 @@ public class EndGame {
         return singleInstance;
     }
 
+    /**
+     *
+     * create new text with specific font attributes and color
+     *
+     * @param endGameScene current scene
+     * @param root group root
+     * @param primaryStage current stage
+     * @param score current score of the game
+     *
+     */
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
+        primaryStage.setFullScreen(true);
+
         Text text = new Text("GAME OVER");
         text.relocate(250,250);
         text.setFont(Font.font(80));
         root.getChildren().add(text);
-
 
         Text scoreText = new Text(score+"");
         scoreText.setFill(Color.BLACK);
