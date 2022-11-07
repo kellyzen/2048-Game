@@ -2,6 +2,17 @@ package com.example.demo.account;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * Saves user's account.
+ * Checks and compares the high score of users.
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
+
 public class Account implements Comparable<Account> {
     private long score = 0;
     private String userName ;

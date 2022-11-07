@@ -12,6 +12,16 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Scanner;
 
+/**
+ *
+ * 2048 Game
+ *
+ * @author Kelly Tan Kai Ling
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
+
 public class Main extends Application {
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
