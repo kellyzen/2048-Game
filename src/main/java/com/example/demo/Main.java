@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  * 2048 Game
  *
- * @author Kelly Tan Kai Ling
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *

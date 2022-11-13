@@ -16,7 +16,7 @@ import java.util.Random;
  *
  * Shows when the game started.
  *
- * @author Kelly Tan Kai Ling
+ *@author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
@@ -41,6 +41,12 @@ public class GameScene {
         return LENGTH;
     }
 
+    /**
+     *
+     * randomly fill number on new cells
+     *
+     * @param turn user turn
+     */
     private void randomFillNumber(int turn) {
 
         Cell[][] emptyCells = new Cell[n][n];
@@ -67,8 +73,6 @@ public class GameScene {
             }
         }
 
-
-
         Text text;
         Random random = new Random();
         boolean putTwo = true;
@@ -90,6 +94,15 @@ public class GameScene {
         }
     }
 
+    /**
+     *
+     * check if there is empty cell
+     * return 1 if there are empty cell
+     * return 0 if there are cell with number 2048
+     * return -1 if there are no empty cell
+     *
+     * @return int
+     */
     private int  haveEmptyCell() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -102,6 +115,15 @@ public class GameScene {
         return -1;
     }
 
+    /**
+     *
+     * change the position of cell based on key pressed
+     *
+     * @param i row
+     * @param j column
+     * @param direct direction of the tile is moving
+     * @return int
+     */
     private int passDestination(int i, int j, char direct) {
         int coordinate = j;
         if (direct == 'l') {
@@ -225,6 +247,19 @@ public class GameScene {
 
     }
 
+    /**
+     *
+     * checks if horizontal row is full or not
+     * returns true if horizontal move is possible
+     * returns false if horizontal move is not possible
+     *
+     * @param i current row of the tile
+     * @param j current column of the tile
+     * @param des destination of the tile
+     * @param sign moves up/left (-1) or moves down/right (+1)
+     * @return boolean
+     *
+     */
     private boolean isValidDesH(int i, int j, int des, int sign) {
         if (des + sign < n && des + sign >= 0) {
             if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
@@ -237,15 +272,12 @@ public class GameScene {
 
     /**
      *
-     * Compares two tile's values together and if they are the same or if one is
-     * equal to 0 (plain tile) - their values are added (provided that the tiles
-     * we are comparing are two different tiles and they are moving towards the
-     * appropriate direction) - Uses recursion to go through the entire column
+     * moves the cell horizontally if horizontal move is valid
      *
-     * @param i row that the compare tile is currently on
-     * @param j column that the compare tile is currently on
-     * @param des direction (up or down) that the tile is moving in
-     * @param sign change ltr
+     * @param i current row of the tile
+     * @param j current column of the tile
+     * @param des destination of the tile
+     * @param sign moves up/left (-1) or moves down/right (+1)
      *
      */
     private void moveHorizontally(int i, int j, int des, int sign) {
@@ -257,6 +289,19 @@ public class GameScene {
         }
     }
 
+    /**
+     *
+     * checks if vertical column is full or not
+     * returns true if vertical move is possible
+     * returns false if vertical move is not possible
+     *
+     * @param i current row of the tile
+     * @param j current column of the tile
+     * @param des destination of the tile
+     * @param sign moves up/left (-1) or moves down/right (+1)
+     * @return boolean
+     *
+     */
     private boolean isValidDesV(int i, int j, int des, int sign) {
         if (des + sign < n && des + sign >= 0)
             if (cells[des + sign][j].getNumber() == cells[i][j].getNumber() && !cells[des + sign][j].getModify()
@@ -266,6 +311,16 @@ public class GameScene {
         return false;
     }
 
+    /**
+     *
+     * moves the cell vertically if vertical move is valid
+     *
+     * @param i current row of the tile
+     * @param j current column of the tile
+     * @param des destination of the tile
+     * @param sign moves up/left (-1) or moves down/right (+1)
+     *
+     */
     private void moveVertically(int i, int j, int des, int sign) {
         if (isValidDesV(i, j, des, sign)) {
             cells[i][j].adder(cells[des + sign][j]);
@@ -275,6 +330,12 @@ public class GameScene {
         }
     }
 
+    /**
+     *
+     * checks whether there are neighbouring tiles with same value
+     *
+     * @return boolean
+     */
     private boolean haveSameNumberNearly(int i, int j) {
         if (i < n - 1 && j < n - 1) {
             if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
@@ -285,6 +346,12 @@ public class GameScene {
         return false;
     }
 
+    /**
+     *
+     * checks whether the tiles can move or not when fulled
+     *
+     * @return boolean
+     */
     private boolean canNotMove() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -296,6 +363,11 @@ public class GameScene {
         return true;
     }
 
+    /**
+     *
+     * add total score after each moves
+     *
+     */
     private void sumCellNumbersToScore() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {

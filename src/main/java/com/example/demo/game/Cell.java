@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
  * Represents an individual cell in the game.
  * Set an integer value and color to each cell which will be changed when combined.
  *
- * @author Kelly Tan Kai Ling
+ * @author Kelly Kai Ling Tan-modified
  * @version Nov 7, 2022
  * @author Coursework: COMP2042
  *

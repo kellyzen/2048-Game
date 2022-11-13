@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Saves user's account.
  * Checks and compares the high score of users.
  *
- * @author Kelly Tan Kai Ling
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *

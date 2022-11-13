@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
  *
  * Create text with specific font attributes and color.
  *
- * @author Kelly Tan Kai Ling
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
@@ -36,6 +36,7 @@ class TextMaker {
      * @param xCell x-position of the cell
      * @param yCell y-position of the cell
      * @param root group root
+     * @return Text
      *
      */
     Text madeText(String input, double xCell, double yCell, Group root) {

@@ -19,7 +19,7 @@ import java.util.Optional;
  * Shows when the game ended either game over or won.
  * Directs back to menu or quit game.
  *
- * @author Kelly Tan Kai Ling
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
