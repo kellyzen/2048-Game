@@ -23,7 +23,7 @@ import java.util.Random;
  */
 
 public class GameScene {
-    private static int HEIGHT = 700;
+    private static int HEIGHT = 600;
     private static int n = 4;
     private final static int distanceBetweenCells = 10;
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;

@@ -10,4 +10,6 @@ module com.example.demo {
     opens com.example.demo.game to javafx.fxml;
     exports com.example.demo.account;
     opens com.example.demo.account to javafx.fxml;
+    exports com.example.demo.menu;
+    opens com.example.demo.menu to javafx.fxml;
 }

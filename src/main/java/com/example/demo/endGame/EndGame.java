@@ -51,20 +51,20 @@ public class EndGame {
 
         Text text = new Text("GAME OVER");
         text.relocate(250,250);
-        text.setFont(Font.font(80));
+        text.setFont(Font.font(56));
         root.getChildren().add(text);
 
         Text scoreText = new Text(score+"");
         scoreText.setFill(Color.BLACK);
-        scoreText.relocate(250,600);
-        scoreText.setFont(Font.font(80));
+        scoreText.relocate(250,400);
+        scoreText.setFont(Font.font(56));
         root.getChildren().add(scoreText);
 
         Button quitButton = new Button("QUIT");
         quitButton.setPrefSize(100,30);
         quitButton.setTextFill(Color.PINK);
         root.getChildren().add(quitButton);
-        quitButton.relocate(100,800);
+        quitButton.relocate(250,600);
         quitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -76,11 +76,9 @@ public class EndGame {
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
                     root.getChildren().clear();
+                    System.exit(0);
                 }
             }
         });
-
-
-
     }
 }
