@@ -4,12 +4,15 @@ import com.example.demo.endGame.EndGame;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -28,13 +31,27 @@ public class GameScene {
     private final static int distanceBetweenCells = 10;
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private TextMaker textMaker = TextMaker.getSingleInstance();
-    private Cell[][] cells = new Cell[n][n];
+    private static Cell[][] cells = new Cell[n][n];
     private Group root;
     private long score = 0;
 
+    /**
+     *
+     * determine n x n
+     *
+     * @param number number of cells per row & column
+     */
     static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
+    }
+
+    static int getN() {
+        return n;
+    }
+
+    static Cell[][] getCell() {
+        return cells;
     }
 
     static double getLENGTH() {
@@ -52,7 +69,7 @@ public class GameScene {
         Cell[][] emptyCells = new Cell[n][n];
         int a = 0;
         int b = 0;
-        int aForBound=0,bForBound=0;
+        int aForBound = 0, bForBound = 0;
         outer:
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -137,7 +154,6 @@ public class GameScene {
             }
             return coordinate;
         }
-        coordinate = j;
         if (direct == 'r') {
             for (int k = j + 1; k <= n - 1; k++) {
                 if (cells[i][k].getNumber() != 0) {
@@ -162,7 +178,6 @@ public class GameScene {
             }
             return coordinate;
         }
-        coordinate = i;
         if (direct == 'u') {
             for (int k = i - 1; k >= 0; k--) {
                 if (cells[k][j].getNumber() != 0) {
@@ -244,14 +259,13 @@ public class GameScene {
                 cells[i][j].setModify(false);
             }
         }
-
     }
 
     /**
      *
-     * checks if horizontal row is full or not
-     * returns true if horizontal move is possible
-     * returns false if horizontal move is not possible
+     * checks if horizontal destination is correct
+     * returns true if horizontal destination is correct
+     * returns false if horizontal destination is not correct
      *
      * @param i current row of the tile
      * @param j current column of the tile
@@ -291,9 +305,9 @@ public class GameScene {
 
     /**
      *
-     * checks if vertical column is full or not
-     * returns true if vertical move is possible
-     * returns false if vertical move is not possible
+     * checks if vertical destination is correct
+     * returns true if vertical destination is correct
+     * returns false if vertical destination is not correct
      *
      * @param i current row of the tile
      * @param j current column of the tile
@@ -403,28 +417,57 @@ public class GameScene {
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
             Platform.runLater(() -> {
                 int haveEmptyCell;
-                if (key.getCode() == KeyCode.DOWN) {
-                    GameScene.this.moveDown();
-                } else if (key.getCode() == KeyCode.UP) {
-                    GameScene.this.moveUp();
-                } else if (key.getCode() == KeyCode.LEFT) {
-                    GameScene.this.moveLeft();
-                } else if (key.getCode() == KeyCode.RIGHT) {
-                    GameScene.this.moveRight();
-                }
-                GameScene.this.sumCellNumbersToScore();
-                scoreText.setText(score + "");
-                haveEmptyCell = GameScene.this.haveEmptyCell();
-                if (haveEmptyCell == -1) {
-                    if (GameScene.this.canNotMove()) {
-                        primaryStage.setScene(endGameScene);
 
-                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                        root.getChildren().clear();
-                        score = 0;
+                switch(key.getCode()) {
+                    case UP, W -> {
+                        GameScene.this.moveUp();
                     }
-                } else if(haveEmptyCell == 1)
-                    GameScene.this.randomFillNumber(2);
+                    case DOWN, S -> {
+                        GameScene.this.moveDown();
+                    }
+                    case LEFT, A -> {
+                        GameScene.this.moveLeft();
+                    }
+                    case RIGHT, D -> {
+                        GameScene.this.moveRight();
+                    }
+                    default -> {
+                        break;
+                    }
+                }
+
+                switch(key.getCode()) {
+                    case UP, DOWN, LEFT, RIGHT, A, W, S, D -> {
+                        GameScene.this.sumCellNumbersToScore();
+                        scoreText.setText(score + "");
+                        haveEmptyCell = GameScene.this.haveEmptyCell();
+                        if (haveEmptyCell == -1) {
+                            if (GameScene.this.canNotMove()) {
+                                primaryStage.setScene(endGameScene);
+
+                                EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                                root.getChildren().clear();
+                                score = 0;
+                            }
+                        } else if(haveEmptyCell == 1) {
+                            GameScene.this.randomFillNumber(2);
+                        } else if(haveEmptyCell == 0) {
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setTitle("You Win!");
+                            alert.setHeaderText("Continue game");
+                            alert.setContentText("Do you want to continue game?");
+
+                            Optional<ButtonType> result = alert.showAndWait();
+                            if (result.get() != ButtonType.OK){
+                                primaryStage.setScene(endGameScene);
+
+                                EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                                root.getChildren().clear();
+                                score = 0;
+                            }
+                        }
+                    }
+                }
             });
         });
     }

@@ -56,8 +56,6 @@ public class menuController implements Initializable {
         Group rankRoot = new Group();
         Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
 
-
-
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, backgroundScene);
@@ -113,26 +111,27 @@ public class menuController implements Initializable {
         menuChoiceBox.getScene().getRoot().getStylesheets().remove(getClass().getResource("/com/example/demo/styling/nymph.css").toString());
         menuChoiceBox.getScene().getRoot().getStylesheets().remove(getClass().getResource("/com/example/demo/styling/default.css").toString());
 
-        if (Objects.equals(theme, "Dark")) {
-            menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/dark.css").toString());
-            setBackgroundScene(Color.web("#373e43"));
-
-        } else if (Objects.equals(theme, "Light")) {
-            menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/light.css").toString());
-            setBackgroundScene(Color.web("#eee"));
-
-        } else if (Objects.equals(theme, "Fantasy")) {
-            menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/fantasy.css").toString());
-            setBackgroundScene(Color.web("#D6B9F3"));
-
-        } else if (Objects.equals(theme, "Nymph")) {
-            menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/nymph.css").toString());
-            setBackgroundScene(Color.web("#5c9aaf"));
-
-        } else if (Objects.equals(theme, "Default")) {
-            menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/default.css").toString());
-            setBackgroundScene(Color.rgb(189, 177, 92));
-
+        switch (theme) {
+            case "Dark" -> {
+                menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/dark.css").toString());
+                setBackgroundScene(Color.web("#373e43"));
+            }
+            case "Light" -> {
+                menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/light.css").toString());
+                setBackgroundScene(Color.web("#eee"));
+            }
+            case "Fantasy" -> {
+                menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/fantasy.css").toString());
+                setBackgroundScene(Color.web("#D6B9F3"));
+            }
+            case "Nymph" -> {
+                menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/nymph.css").toString());
+                setBackgroundScene(Color.web("#5c9aaf"));
+            }
+            case "Default" -> {
+                menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/default.css").toString());
+                setBackgroundScene(Color.rgb(189, 177, 92));
+            }
         }
     }
 }
