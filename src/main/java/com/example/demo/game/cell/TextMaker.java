@@ -1,5 +1,6 @@
-package com.example.demo.game;
+package com.example.demo.game.cell;
 
+import com.example.demo.game.GameScene;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -15,14 +16,14 @@ import javafx.scene.text.Text;
  *
  */
 
-class TextMaker {
+public class TextMaker {
     private static TextMaker singleInstance = null;
 
     private TextMaker() {
 
     }
 
-    static TextMaker getSingleInstance() {
+    public static TextMaker getSingleInstance() {
         if (singleInstance == null)
             singleInstance = new TextMaker();
         return singleInstance;

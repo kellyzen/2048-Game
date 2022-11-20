@@ -1,10 +1,19 @@
-package com.example.demo.game;
+package com.example.demo.game.move;
 
-public class Left implements Direction{
+import com.example.demo.game.cell.Cell;
+import com.example.demo.game.GameScene;
+
+public class MoveLeft implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
     Movement movement = new Movement();
 
+    /**
+     *
+     * called when clicked 'a' or left arrow keyboard
+     * all cells in the board moves left
+     * calls moveHorizontally
+     */
     @Override
     public void move() {
         for (int i = 0; i < n; i++) {
@@ -17,6 +26,14 @@ public class Left implements Direction{
         }
     }
 
+    /**
+     *
+     * change the position of cell leftward
+     *
+     * @param i row
+     * @param j column
+     * @return int
+     */
     private int passDestination(int i, int j) {
         int coordinate = j;
         for (int k = j - 1; k >= 0; k--) {

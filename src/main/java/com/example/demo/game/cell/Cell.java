@@ -1,6 +1,7 @@
-package com.example.demo.game;
+package com.example.demo.game.cell;
 
 
+import com.example.demo.game.GameScene;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -23,15 +24,15 @@ public class Cell {
     private Text textClass;
     private boolean modify = false;
 
-    void setModify(boolean modify) {
+    public void setModify(boolean modify) {
         this.modify = modify;
     }
 
-    boolean getModify() {
+    public boolean getModify() {
         return modify;
     }
 
-    Cell(double x, double y, double scale, Group root) {
+    public Cell(double x, double y, double scale, Group root) {
         rectangle = new Rectangle();
         rectangle.setX(x);
         rectangle.setY(y);
@@ -53,7 +54,7 @@ public class Cell {
      * @param cell cell to be changed
      *
      */
-    void changeCell(Cell cell) {
+    public void changeCell(Cell cell) {
         TextMaker.changeTwoText(textClass, cell.getTextClass());
         root.getChildren().remove(cell.getTextClass());
         root.getChildren().remove(textClass);
@@ -75,7 +76,11 @@ public class Cell {
      * @param cell cell to be added/ combined
      *
      */
-    void adder(Cell cell) {
+    public void adder(Cell cell) {
+        int score = GameScene.getScore();
+        score += cell.getNumber() + this.getNumber();
+        GameScene.setScore(score);
+
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");
         root.getChildren().remove(textClass);
@@ -133,6 +138,8 @@ public class Cell {
 
     }
 
+
+
     double getX() {
         return rectangle.getX();
     }
@@ -141,7 +148,7 @@ public class Cell {
         return rectangle.getY();
     }
 
-    int getNumber() {
+    public int getNumber() {
         return Integer.parseInt(textClass.getText());
     }
 

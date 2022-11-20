@@ -1,4 +1,7 @@
-package com.example.demo.game;
+package com.example.demo.game.move;
+
+import com.example.demo.game.cell.Cell;
+import com.example.demo.game.GameScene;
 
 public class ValidDestination {
     int n = GameScene.getN();

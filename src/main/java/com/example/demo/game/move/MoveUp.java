@@ -1,10 +1,19 @@
-package com.example.demo.game;
+package com.example.demo.game.move;
 
-public class Up implements Direction{
+import com.example.demo.game.cell.Cell;
+import com.example.demo.game.GameScene;
+
+public class MoveUp implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
     Movement movement = new Movement();
 
+    /**
+     *
+     * called when clicked 'w' or up arrow keyboard
+     * all cells in the board moves upward
+     * calls moveVertically
+     */
     @Override
     public void move() {
         for (int j = 0; j < n; j++) {
@@ -17,6 +26,14 @@ public class Up implements Direction{
         }
     }
 
+    /**
+     *
+     * change the position of cell upward
+     *
+     * @param i row
+     * @param j column
+     * @return int
+     */
     private int passDestination(int i, int j) {
         int coordinate = i;
         for (int k = i - 1; k >= 0; k--) {

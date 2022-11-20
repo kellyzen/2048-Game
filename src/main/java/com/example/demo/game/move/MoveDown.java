@@ -1,10 +1,19 @@
-package com.example.demo.game;
+package com.example.demo.game.move;
 
-public class Down implements Direction{
+import com.example.demo.game.cell.Cell;
+import com.example.demo.game.GameScene;
+
+public class MoveDown implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
     Movement movement = new Movement();
 
+    /**
+     *
+     * called when clicked 's' or down arrow keyboard
+     * all cells in the board moves downward
+     * calls moveVertically
+     */
     @Override
     public void move() {
         for (int j = 0; j < n; j++) {
@@ -17,6 +26,14 @@ public class Down implements Direction{
         }
     }
 
+    /**
+     *
+     * change the position of cell downward
+     *
+     * @param i row
+     * @param j column
+     * @return int
+     */
     private int passDestination(int i, int j) {
         int coordinate = i;
         for (int k = i + 1; k <= n - 1; k++) {

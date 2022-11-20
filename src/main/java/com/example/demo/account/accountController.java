@@ -1,9 +1,9 @@
-package com.example.demo.game;
+package com.example.demo.account;
 
-public class gameController extends GameScene{
+public class accountController {
 }
 
-/*public class gameController extends GameScene {
+/*public class accountController{
 
     private Stage stage;
     private Scene scene;

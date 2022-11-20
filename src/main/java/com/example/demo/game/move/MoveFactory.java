@@ -1,18 +1,18 @@
-package com.example.demo.game;
+package com.example.demo.game.move;
 
-public class DirectionFactory {
-    public Direction getDirection(String direction) {
+public class MoveFactory {
+    public Movable getDirection(String direction) {
         if (direction.equalsIgnoreCase("up")) {
-            return new Up();
+            return new MoveUp();
 
         } else if (direction.equalsIgnoreCase("down")) {
-            return new Down();
+            return new MoveDown();
 
         } else if (direction.equalsIgnoreCase("left")) {
-            return new Left();
+            return new MoveLeft();
 
         } else if (direction.equalsIgnoreCase("right")) {
-            return new Right();
+            return new MoveRight();
         }
 
         return null;
