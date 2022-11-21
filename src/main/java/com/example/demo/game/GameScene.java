@@ -29,7 +29,7 @@ import java.util.Optional;
 
 public class GameScene {
     private static final int HEIGHT = 600;
-    private static int n = 4;
+    private static int n = 6;
     private final static int distanceBetweenCells = 10;
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private static Cell[][] cells = new Cell[n][n];
@@ -68,7 +68,7 @@ public class GameScene {
         GameScene.score = score;
     }
 
-    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    public void startGame(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -127,7 +127,7 @@ public class GameScene {
                             if (gameState.canNotMove()) {
                                 primaryStage.setScene(endGameScene);
 
-                                EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                                EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
                                 root.getChildren().clear();
                                 score = 0;
                             }
@@ -143,7 +143,7 @@ public class GameScene {
                             if (result.get() != ButtonType.OK){
                                 primaryStage.setScene(endGameScene);
 
-                                EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                                EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
                                 root.getChildren().clear();
                                 score = 0;
                             }

@@ -66,7 +66,7 @@ public class menuController implements Initializable {
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, backgroundScene);
 
         GameScene game = new GameScene();
-        game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
+        game.startGame(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
 
         //set title
         primaryStage.setTitle("2048 Game");

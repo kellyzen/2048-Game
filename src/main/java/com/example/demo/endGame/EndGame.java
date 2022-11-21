@@ -29,7 +29,7 @@ public class EndGame {
     private EndGame(){
 
     }
-    public static EndGame getInstance(){
+    public static EndGame getSingleInstance(){
         if(singleInstance == null)
             singleInstance= new EndGame();
         return singleInstance;

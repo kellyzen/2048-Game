@@ -43,9 +43,6 @@ public class Cell {
         this.textClass = TextMaker.getSingleInstance().madeText("0", x, y, root);
         root.getChildren().add(rectangle);
     }
-    void setTextClass(Text textClass) {
-        this.textClass = textClass;
-    }
 
     /**
      *
@@ -135,7 +132,6 @@ public class Cell {
             default:
                 rectangle.setFill(Color.rgb(250,0,0,0.3));
         }
-
     }
 
 
@@ -154,6 +150,10 @@ public class Cell {
 
     private Text getTextClass() {
         return textClass;
+    }
+
+    void setTextClass(Text textClass) {
+        this.textClass = textClass;
     }
 
 }
