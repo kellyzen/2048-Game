@@ -43,7 +43,7 @@ public class GameScene {
      *
      * @param number number of cells per row & column
      */
-    static void setN(int number) {
+    public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }

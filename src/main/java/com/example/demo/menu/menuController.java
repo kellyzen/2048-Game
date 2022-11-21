@@ -2,7 +2,6 @@ package com.example.demo.menu;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -12,9 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -66,6 +65,7 @@ public class menuController implements Initializable {
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, backgroundScene);
 
         GameScene game = new GameScene();
+        GameScene.setN(n);
         game.startGame(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
 
         //set title
@@ -131,6 +131,57 @@ public class menuController implements Initializable {
             case "Default" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/demo/styling/default.css").toString());
                 setBackgroundScene(Color.rgb(189, 177, 92));
+            }
+        }
+    }
+
+    private static int mode = 1;
+    private static int n = 4;
+    @FXML
+    ImageView imageView;
+    @FXML
+    Button nextButton;
+    @FXML
+    Button prevButton;
+    @FXML
+    Label modeLabel;
+
+    Image tinyMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/tiny.png"));
+    Image classicMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/classic.png"));
+    Image largeMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/large.png"));
+    Image hugeMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/huge.png"));
+
+    public void nextMode() {
+        mode = (mode + 1) % 4;
+        changeImage();
+    }
+
+    public void prevMode() {
+        mode = (mode - 1) % 4;
+        changeImage();
+    }
+
+    private void changeImage() {
+        switch (mode) {
+            case 0 -> {
+                imageView.setImage(tinyMode);
+                modeLabel.setText("Tiny (3x3)");
+                n = 3;
+            }
+            case 1, -3 -> {
+                imageView.setImage(classicMode);
+                modeLabel.setText("Classic (4x4)");
+                n = 4;
+            }
+            case 2, -2 -> {
+                imageView.setImage(largeMode);
+                modeLabel.setText("Large (5x5)");
+                n = 5;
+            }
+            case 3, -1 -> {
+                imageView.setImage(hugeMode);
+                modeLabel.setText("Huge (6x6)");
+                n = 6;
             }
         }
     }

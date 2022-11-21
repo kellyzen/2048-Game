@@ -25,13 +25,13 @@
                <font>
                   <Font name="Lucida Console" size="19.0" />
                </font></Button>
-            <Label layoutX="527.0" layoutY="159.0" prefHeight="83.0" prefWidth="373.0" text="2048 GAME" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="527.0" layoutY="159.0" prefHeight="83.0" prefWidth="335.0" text="2048 GAME" textAlignment="CENTER">
                <font>
                   <Font name="Tw Cen MT Bold" size="56.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="menuChoiceBox" layoutX="714.0" layoutY="36.0" prefHeight="34.0" prefWidth="150.0" />
-            <ImageView fitHeight="423.0" fitWidth="444.0" layoutX="55.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+            <ChoiceBox fx:id="menuChoiceBox" layoutX="712.0" layoutY="89.0" prefHeight="34.0" prefWidth="150.0" />
+            <ImageView fx:id="imageView" fitHeight="423.0" fitWidth="444.0" layoutX="55.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/classic.png" />
                </image></ImageView>
@@ -40,6 +40,21 @@
                   <Font name="Lucida Console" size="19.0" />
                </font>
             </Button>
+            <Button fx:id="nextButton" layoutX="807.0" layoutY="279.0" mnemonicParsing="false" onAction="#nextMode" prefHeight="43.0" prefWidth="57.0" text="&gt;">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="prevButton" layoutX="527.0" layoutY="279.0" mnemonicParsing="false" onAction="#prevMode" prefHeight="43.0" prefWidth="57.0" text="&lt;">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="23.0" />
+               </font>
+            </Button>
+            <Label fx:id="modeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="584.0" layoutY="286.0" prefHeight="29.0" prefWidth="223.0" text="Classic (4x4)">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="26.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
