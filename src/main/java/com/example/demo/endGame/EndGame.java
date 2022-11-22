@@ -1,21 +1,24 @@
 package com.example.demo.endGame;
 
+import com.example.demo.components.buttonComponent.ButtonComponent;
+import com.example.demo.components.dialogComponent.QuitDialog;
+import com.example.demo.components.textComponent.TextComponent;
+import com.example.demo.menu.Menu;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.util.Optional;
+
+import java.io.IOException;
 
 /**
  *
- * Shows when the game ended either game over or won.
+ * Shows when the game ended either game over.
  * Directs back to menu or quit game.
  *
  * @author Kelly Kai Ling Tan-modified
@@ -27,7 +30,6 @@ import java.util.Optional;
 public class EndGame {
     private static EndGame singleInstance = null;
     private EndGame(){
-
     }
     public static EndGame getSingleInstance(){
         if(singleInstance == null)
@@ -47,36 +49,48 @@ public class EndGame {
      */
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
         primaryStage.setFullScreen(true);
+        endGameScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
 
-        Text text = new Text("GAME OVER");
-        text.relocate(250,250);
-        text.setFont(Font.font(56));
-        root.getChildren().add(text);
+        //display header text
+        Text headerText = new Text("GAME OVER");
+        new TextComponent(headerText, 250, 250);
+        root.getChildren().add(headerText);
 
+        //display game score
         Text scoreText = new Text(score+"");
-        scoreText.setFill(Color.BLACK);
-        scoreText.relocate(250,350);
-        scoreText.setFont(Font.font(56));
+        new TextComponent(scoreText, 250, 320);
         root.getChildren().add(scoreText);
 
-        Button quitButton = new Button("QUIT");
-        quitButton.setPrefSize(100,30);
-        quitButton.setTextFill(Color.PINK);
+        //display quit button
+        Button quitButton = new Button("Quit");
+        new ButtonComponent(quitButton, 250, 400);
         root.getChildren().add(quitButton);
-        quitButton.relocate(250,450);
-        quitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Quit Dialog");
-                alert.setHeaderText("Quit from this page");
-                alert.setContentText("Are you sure?");
 
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
-                    root.getChildren().clear();
-                    System.exit(0);
+        //display back to menu button
+        Button menuButton = new Button("Back To Menu");
+        new ButtonComponent(menuButton, 450, 400);
+        root.getChildren().add(menuButton);
+
+        //quit game dialog pop up when quit button is clicked
+        quitButton.setOnMouseClicked(event -> new QuitDialog());
+
+        //direct back to menu page when menu button is clicked
+        menuButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Menu menu = new Menu();
+                menu.menu(primaryStage);
+                Parent menuRoot = null;
+                try {
+                    menuRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
+                Scene menuScene = new Scene(menuRoot);
+                primaryStage.setScene(menuScene);
+                String css = this.getClass().getResource("/com/example/demo/styling/default.css").toExternalForm();
+                menuScene.getStylesheets().add(css);
+                primaryStage.setFullScreen(true);
             }
         });
     }

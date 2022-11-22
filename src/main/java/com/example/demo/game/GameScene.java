@@ -1,5 +1,7 @@
 package com.example.demo.game;
 
+import com.example.demo.components.dialogComponent.InformationDialog;
+import com.example.demo.components.textComponent.TextComponent;
 import com.example.demo.endGame.EndGame;
 import com.example.demo.game.cell.Cell;
 import com.example.demo.game.cell.CreateRandomCell;
@@ -8,14 +10,9 @@ import com.example.demo.game.move.MoveFactory;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.util.Optional;
 
 /**
  *
@@ -70,6 +67,8 @@ public class GameScene {
 
     public void startGame(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
+        gameScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells,
@@ -78,22 +77,22 @@ public class GameScene {
 
         }
 
-        Text text = new Text();
-        root.getChildren().add(text);
-        text.setText("SCORE :");
-        text.setFont(Font.font(30));
-        text.relocate(750, 100);
-        Text scoreText = new Text();
+        //display header text
+        Text headerText = new Text("SCORE :");
+        new TextComponent(headerText, 650, 100);
+        root.getChildren().add(headerText);
+
+        //display game score
+        Text scoreText = new Text("0");
+        new TextComponent(scoreText, 650, 180);
         root.getChildren().add(scoreText);
-        scoreText.relocate(750, 150);
-        scoreText.setFont(Font.font(20));
-        scoreText.setText("0");
 
         //randomly add two tiles when start game
         CreateRandomCell newCell = new CreateRandomCell();
         newCell.createNewCell(root);
         newCell.createNewCell(root);
 
+        //detects any key pressed
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
             Platform.runLater(() -> {
                 int haveEmptyCell;
@@ -134,19 +133,8 @@ public class GameScene {
                         } else if(haveEmptyCell == 1) {
                             newCell.createNewCell(root);
                         } else if(haveEmptyCell == 0) {
-                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                            alert.setTitle("You Win!");
-                            alert.setHeaderText("Continue game");
-                            alert.setContentText("Do you want to continue game?");
-
-                            Optional<ButtonType> result = alert.showAndWait();
-                            if (result.get() != ButtonType.OK){
-                                primaryStage.setScene(endGameScene);
-
-                                EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                                root.getChildren().clear();
-                                score = 0;
-                            }
+                            new InformationDialog();
+                            score = 0;
                         }
                     }
                 }

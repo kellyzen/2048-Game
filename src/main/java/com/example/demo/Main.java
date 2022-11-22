@@ -80,8 +80,9 @@ public class Main extends Application {
             Parent menuRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
             Scene menuScene = new Scene(menuRoot);
             primaryStage.setScene(menuScene);
-            String css = this.getClass().getResource("/com/example/demo/styling/default.css").toExternalForm();
-            menuScene.getStylesheets().add(css);
+            menuScene.getStylesheets().add(this.getClass().getResource("/com/example/demo/styling/default.css").toExternalForm());
+            menuScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
+
 
             //set title
             primaryStage.setTitle("2048 Game");

@@ -1,10 +1,9 @@
 package com.example.demo.menu;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import com.example.demo.components.dialogComponent.QuitDialog;
 import com.example.demo.game.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,48 +43,34 @@ public class menuController implements Initializable {
         this.backgroundScene = backgroundScene;
     }
 
-    public void switchToGame(ActionEvent event) throws IOException {
-
-        Group menuRoot = new Group();
-        Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
-        Group accountRoot = new Group();
-        Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
-        Group getAccountRoot = new Group();
-        Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
-        Group rankRoot = new Group();
-        Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
-
+    public void switchToGame(ActionEvent event) {
+        //set root and scene for game
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, backgroundScene);
         setGameScene(gameScene);
         primaryStage.setScene(gameScene);
 
+        //set root and scene for end game
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, backgroundScene);
 
+        //reset game  mode
+        changeImage();
+
+        //set grid number (n) and startGame method in GameScene
         GameScene game = new GameScene();
         GameScene.setN(n);
         game.startGame(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
 
-        //set title
+        //set title and full screen
         primaryStage.setTitle("2048 Game");
-        //set full screen
         primaryStage.setFullScreen(true);
-
         primaryStage.show();
     }
 
-    public void quitGame(ActionEvent event) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Quit Dialog");
-        alert.setHeaderText("Quit from this page");
-        alert.setContentText("Are you sure?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
-            System.exit(0);
-        }
+    public void quitGame() {
+        new QuitDialog();
     }
 
     @FXML
@@ -135,8 +120,9 @@ public class menuController implements Initializable {
         }
     }
 
-    private static int mode = 1;
+    private int mode = 1;
     private static int n = 4;
+    private final int numOfMode = 4;
     @FXML
     ImageView imageView;
     @FXML
@@ -152,12 +138,12 @@ public class menuController implements Initializable {
     Image hugeMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/huge.png"));
 
     public void nextMode() {
-        mode = (mode + 1) % 4;
+        mode = (mode + 1) % numOfMode;
         changeImage();
     }
 
     public void prevMode() {
-        mode = (mode - 1) % 4;
+        mode = (mode - 1) % numOfMode;
         changeImage();
     }
 
