@@ -1,6 +1,6 @@
 package com.example.demo.game;
 
-import com.example.demo.components.dialogComponent.InformationDialog;
+import com.example.demo.components.dialogComponent.CongratulationDialog;
 import com.example.demo.components.textComponent.TextComponent;
 import com.example.demo.endGame.EndGame;
 import com.example.demo.game.cell.Cell;
@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -31,8 +32,9 @@ public class GameScene {
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private static Cell[][] cells = new Cell[n][n];
     private Group root;
-
     private static long score = 0;
+
+    private static long highestTile = 0;
 
     /**
      *
@@ -65,6 +67,14 @@ public class GameScene {
         GameScene.score = score;
     }
 
+    public static long getHighestTile() {
+        return highestTile;
+    }
+
+    public static void setHighestTile(long highestTile) {
+        GameScene.highestTile = highestTile;
+    }
+
     public void startGame(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
         gameScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
@@ -87,10 +97,27 @@ public class GameScene {
         new TextComponent(scoreText, 650, 180);
         root.getChildren().add(scoreText);
 
+        //display header text
+        Text headerTileText = new Text("HIGHEST\n"+"TILE :");
+        new TextComponent(headerTileText, 650, 300);
+        root.getChildren().add(headerTileText);
+
+        //display game score
+        Text highestTileText = new Text(String.valueOf(getHighestTile()));
+        new TextComponent(highestTileText, 650, 420);
+        root.getChildren().add(highestTileText);
+
+        //display instruction text
+        Text instructionText = new Text("- Use 'AWSD' or Arrow Keys to move\n"+"- Press 'G' to end game");
+        new TextComponent(instructionText, 620, 550);
+        instructionText.setFont(Font.font(16));
+        root.getChildren().add(instructionText);
+
         //randomly add two tiles when start game
         CreateRandomCell newCell = new CreateRandomCell();
-        newCell.createNewCell(root);
-        newCell.createNewCell(root);
+        long cell1 = newCell.createNewCell(root);
+        long cell2 = newCell.createNewCell(root);
+        setHighestTile(Math.max(cell1, cell2));
 
         //detects any key pressed
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
@@ -120,22 +147,30 @@ public class GameScene {
                 switch(key.getCode()) {
                     case UP, DOWN, LEFT, RIGHT, A, W, S, D -> {
                         scoreText.setText(score + "");
+                        highestTileText.setText(highestTile + "");
                         GameState gameState = new GameState();
                         haveEmptyCell = gameState.haveEmptyCell();
                         if (haveEmptyCell == -1) {
                             if (gameState.canNotMove()) {
                                 primaryStage.setScene(endGameScene);
 
-                                EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                                EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
                                 root.getChildren().clear();
                                 score = 0;
                             }
                         } else if(haveEmptyCell == 1) {
                             newCell.createNewCell(root);
                         } else if(haveEmptyCell == 0) {
-                            new InformationDialog();
+                            new CongratulationDialog();
                             score = 0;
                         }
+                    }
+                    case G -> {
+                        new CongratulationDialog();
+                        /*primaryStage.setScene(endGameScene);
+                        EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
+                        root.getChildren().clear();
+                        score = 0;*/
                     }
                 }
             });

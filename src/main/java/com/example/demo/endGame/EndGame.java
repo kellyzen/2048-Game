@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -47,19 +48,26 @@ public class EndGame {
      * @param score current score of the game
      *
      */
-    public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
+    public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score, long highestTile){
         primaryStage.setFullScreen(true);
         endGameScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
 
         //display header text
         Text headerText = new Text("GAME OVER");
-        new TextComponent(headerText, 250, 250);
+        new TextComponent(headerText, 250, 200);
         root.getChildren().add(headerText);
 
         //display game score
-        Text scoreText = new Text(score+"");
-        new TextComponent(scoreText, 250, 320);
+        Text scoreText = new Text("Score: \n"+score+"");
+        new TextComponent(scoreText, 250, 280);
         root.getChildren().add(scoreText);
+        scoreText.setFont(Font.font(36));
+
+        //display the highest tile
+        Text highestTileText = new Text("Highest Tile: \n"+highestTile+"");
+        new TextComponent(highestTileText, 450, 280);
+        root.getChildren().add(highestTileText);
+        highestTileText.setFont(Font.font(36));
 
         //display quit button
         Button quitButton = new Button("Quit");

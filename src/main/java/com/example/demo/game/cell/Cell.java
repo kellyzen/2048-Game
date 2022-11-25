@@ -74,9 +74,15 @@ public class Cell {
      *
      */
     public void adder(Cell cell) {
+        //update score
         long score = GameScene.getScore();
-        score += cell.getNumber() + this.getNumber();
+        long newTile = cell.getNumber() + this.getNumber();
+        score += newTile;
         GameScene.setScore(score);
+
+        //update the highest tile number
+        long highestTile = GameScene.getHighestTile();
+        GameScene.setHighestTile(Math.max(newTile, highestTile));
 
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");

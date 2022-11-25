@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 
 import java.util.Random;
 
-public class CreateRandomCell {
+public class CreateRandomCell{
     private Group root;
     private TextMaker textMaker = TextMaker.getSingleInstance();
     int n = GameScene.getN();
@@ -17,7 +17,7 @@ public class CreateRandomCell {
      *
      * @param root Group root
      */
-    public void createNewCell(Group root) {
+    public long createNewCell(Group root) {
         this.root = root;
 
         Cell[][] emptyCells = new Cell[n][n];
@@ -43,13 +43,13 @@ public class CreateRandomCell {
                 }
             }
         }
-        randomFillNumber(aForBound, bForBound, emptyCells);
+        return randomFillNumber(aForBound, bForBound, emptyCells);
     }
 
     /**
      * randomly fill number on new cells
      */
-    private void randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
+    private long randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
         Text text;
         Random random = new Random();
         boolean putTwo = true;
@@ -63,11 +63,13 @@ public class CreateRandomCell {
             emptyCells[xCell][yCell].setTextClass(text);
             root.getChildren().add(text);
             emptyCells[xCell][yCell].setColorByNumber(2);
+            return 2;
         } else {
             text = textMaker.madeText("4", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
             root.getChildren().add(text);
             emptyCells[xCell][yCell].setColorByNumber(4);
+            return 4;
         }
     }
 }
