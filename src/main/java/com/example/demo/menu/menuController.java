@@ -73,8 +73,7 @@ public class menuController implements Initializable {
         new QuitDialog();
     }
 
-    @FXML
-    private ChoiceBox<String> menuChoiceBox;
+    @FXML private ChoiceBox<String> menuChoiceBox;
 
     private final String[] theme = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
 
@@ -123,14 +122,10 @@ public class menuController implements Initializable {
     private int mode = 1;
     private static int n = 4;
     private final int numOfMode = 4;
-    @FXML
-    ImageView imageView;
-    @FXML
-    Button nextButton;
-    @FXML
-    Button prevButton;
-    @FXML
-    Label modeLabel;
+    @FXML ImageView imageView;
+    @FXML Button nextButton;
+    @FXML Button prevButton;
+    @FXML Label modeLabel;
 
     Image tinyMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/tiny.png"));
     Image classicMode = new Image(getClass().getResourceAsStream("/com/example/demo/images/classic.png"));

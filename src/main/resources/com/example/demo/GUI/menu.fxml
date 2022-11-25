@@ -30,7 +30,7 @@
                   <Font name="Tw Cen MT Bold" size="56.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="menuChoiceBox" layoutX="712.0" layoutY="89.0" prefHeight="34.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="menuChoiceBox" layoutX="712.0" layoutY="89.0" prefHeight="34.0" prefWidth="150.0" value="Default"/>
             <ImageView fx:id="imageView" fitHeight="423.0" fitWidth="444.0" layoutX="55.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/classic.png" />

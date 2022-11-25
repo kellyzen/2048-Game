@@ -39,7 +39,7 @@ public class Account implements Comparable<Account> {
         return userName;
     }
 
-    static Account accountHaveBeenExist(String userName){
+    static Account accountExist(String userName){
         for(Account account : accounts){
             if(account.getUserName().equals(userName)){
                 return account;

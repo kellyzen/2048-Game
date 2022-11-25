@@ -32,7 +32,7 @@ public class GameScene {
     private static Cell[][] cells = new Cell[n][n];
     private Group root;
 
-    private static int score = 0;
+    private static long score = 0;
 
     /**
      *
@@ -57,11 +57,11 @@ public class GameScene {
         return LENGTH;
     }
 
-    public static int getScore() {
+    public static long getScore() {
         return score;
     }
 
-    public static void setScore(int score) {
+    public static void setScore(long score) {
         GameScene.score = score;
     }
 

@@ -7,11 +7,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
-
 import java.util.Scanner;
 
 /**
@@ -24,7 +24,7 @@ import java.util.Scanner;
  *
  */
 
-public class Main extends Application {
+public class GameApp extends Application {
     static final int WIDTH = 900;
     static final int HEIGHT = 600;
     private Group gameRoot = new Group();
@@ -84,10 +84,14 @@ public class Main extends Application {
             menuScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
 
 
-            //set title
+            //set title, full screen and non-resizable
             primaryStage.setTitle("2048 Game");
-            //set full screen
             primaryStage.setFullScreen(true);
+            primaryStage.setResizable(false);
+
+            //set icon
+            Image icon = new Image(getClass().getResourceAsStream("/com/example/demo/images/icon.png"));
+            primaryStage.getIcons().add(icon);
 
             primaryStage.show();
 

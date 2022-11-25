@@ -74,7 +74,7 @@ public class Cell {
      *
      */
     public void adder(Cell cell) {
-        int score = GameScene.getScore();
+        long score = GameScene.getScore();
         score += cell.getNumber() + this.getNumber();
         GameScene.setScore(score);
 
