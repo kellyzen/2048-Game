@@ -157,11 +157,14 @@ public class GameScene {
                         if (haveEmptyCell == -1) {
                             if (gameState.canNotMove()) {
                                 Account user = accountController.getUser();
-                                try {
-                                    user.updateScore(score);
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
+                                if(score > user.getScore()) {
+                                    try {
+                                        user.updateScore(score);
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
+
                                 primaryStage.setScene(endGameScene);
                                 EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
                                 root.getChildren().clear();
@@ -176,10 +179,12 @@ public class GameScene {
                     }
                     case G -> {
                         Account user = accountController.getUser();
-                        try {
-                            user.updateScore(score);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
+                        if(score > user.getScore()) {
+                            try {
+                                user.updateScore(score);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
                         primaryStage.setScene(endGameScene);
                         EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
