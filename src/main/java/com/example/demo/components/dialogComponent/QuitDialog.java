@@ -7,6 +7,6 @@ public class QuitDialog extends ConfirmationDialog {
         String header = "Quit from this game";
         String context = "Are you sure?";
         ConfirmationDialog continueButton = new ConfirmationDialog();
-        continueButton.createButton(title, header, context);
+        continueButton.createDialog(title, header, context);
     }
 }

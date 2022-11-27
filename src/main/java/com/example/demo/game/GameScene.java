@@ -1,5 +1,7 @@
 package com.example.demo.game;
 
+import com.example.demo.account.Account;
+import com.example.demo.account.accountController;
 import com.example.demo.components.dialogComponent.CongratulationDialog;
 import com.example.demo.components.textComponent.TextComponent;
 import com.example.demo.endGame.EndGame;
@@ -14,6 +16,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  *
@@ -152,8 +156,13 @@ public class GameScene {
                         haveEmptyCell = gameState.haveEmptyCell();
                         if (haveEmptyCell == -1) {
                             if (gameState.canNotMove()) {
+                                Account user = accountController.getUser();
+                                try {
+                                    user.updateScore(score);
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
                                 primaryStage.setScene(endGameScene);
-
                                 EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
                                 root.getChildren().clear();
                                 score = 0;
@@ -166,11 +175,16 @@ public class GameScene {
                         }
                     }
                     case G -> {
-                        new CongratulationDialog();
-                        /*primaryStage.setScene(endGameScene);
+                        Account user = accountController.getUser();
+                        try {
+                            user.updateScore(score);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        primaryStage.setScene(endGameScene);
                         EndGame.getSingleInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score, highestTile);
                         root.getChildren().clear();
-                        score = 0;*/
+                        score = 0;
                     }
                 }
             });

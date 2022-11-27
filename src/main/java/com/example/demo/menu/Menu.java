@@ -7,6 +7,10 @@ public class Menu {
 
     public void menu(Stage primaryStage) {
         this.setPrimaryStage(primaryStage);
+        /*menuController menu = new menuController();
+        Account user = accountController.getUser();
+        menu.setUsernameLabel(user.getUsername());
+        menu.setHighScoreLabel(user.getScore());*/
     }
 
     public static Stage getPrimaryStage() {

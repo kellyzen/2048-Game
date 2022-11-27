@@ -3,6 +3,9 @@ package com.example.demo.menu;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+
+import com.example.demo.account.Account;
+import com.example.demo.account.accountController;
 import com.example.demo.components.dialogComponent.QuitDialog;
 import com.example.demo.game.GameScene;
 import javafx.event.ActionEvent;
@@ -25,7 +28,16 @@ public class menuController implements Initializable {
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
 
     private Color backgroundScene = Color.rgb(189, 177, 92);
-    private static Scanner input= new Scanner(System.in);
+    @FXML Label highScoreLabel;
+    @FXML Label usernameLabel;
+
+    public void setUsernameLabel(String text) {
+        usernameLabel.setText(text);
+    }
+
+    public void setHighScoreLabel(Long score) {
+        highScoreLabel.setText(String.valueOf(score));
+    }
 
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
@@ -79,7 +91,6 @@ public class menuController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
         menuChoiceBox.getItems().addAll(theme);
         menuChoiceBox.setOnAction(this::changeTheme);
 

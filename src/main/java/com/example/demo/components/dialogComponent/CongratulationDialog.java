@@ -7,6 +7,6 @@ public class CongratulationDialog extends ConfirmationDialog {
         String header = "Congratulations, you've reached 2048!";
         String context = "Click 'OK' if you wish to exit game\nClick 'Cancel' if you wish to continue game";
         ConfirmationDialog continueButton = new ConfirmationDialog();
-        continueButton.createButton(title, header, context);
+        continueButton.createDialog(title, header, context);
     }
 }

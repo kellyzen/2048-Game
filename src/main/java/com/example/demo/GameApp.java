@@ -44,28 +44,28 @@ public class GameApp extends Application {
         try {
             //Group menuRoot = new Group();
             //Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
-            Group accountRoot = new Group();
-            Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
-            Group getAccountRoot = new Group();
-            Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
+            //Group accountRoot = new Group();
+            //Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
+            //Group getAccountRoot = new Group();
+            //Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
             Group endgameRoot = new Group();
             Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
             Group rankRoot = new Group();
             Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
 
-            BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
-            Background background = new Background(background_fill);
+            //BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
+            //Background background = new Background(background_fill);
 
 
-            Rectangle backgroundOfMenu = new Rectangle(240, 120, Color.rgb(120, 120, 120, 0.2));
-            backgroundOfMenu.setX(WIDTH / 2 - 120);
-            backgroundOfMenu.setY(180);
+            //Rectangle backgroundOfMenu = new Rectangle(240, 120, Color.rgb(120, 120, 120, 0.2));
+            //backgroundOfMenu.setX(WIDTH / 2 - 120);
+            //backgroundOfMenu.setY(180);
             //menuRoot.getChildren().add(backgroundOfMenu);
 
-            Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, Color.rgb(120, 20, 100, 0.2));
+            /*Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, Color.rgb(120, 20, 100, 0.2));
             backgroundOfMenuForPlay.setX(WIDTH / 2 - 120);
             backgroundOfMenuForPlay.setY(180);
-            accountRoot.getChildren().add(backgroundOfMenuForPlay);
+            accountRoot.getChildren().add(backgroundOfMenuForPlay);*/
 
             //Group gameRoot = new Group();
             //setGameRoot(gameRoot);
@@ -75,18 +75,20 @@ public class GameApp extends Application {
             //GameScene game = new GameScene();
             //game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
 
+            //stage Menu class
             Menu menu = new Menu();
             menu.menu(primaryStage);
-            Parent menuRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
-            Scene menuScene = new Scene(menuRoot);
-            primaryStage.setScene(menuScene);
-            menuScene.getStylesheets().add(this.getClass().getResource("/com/example/demo/styling/default.css").toExternalForm());
-            menuScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
+
+            //start account scene
+            Parent accountRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/account.fxml"));
+            Scene accountScene = new Scene(accountRoot);
+            primaryStage.setScene(accountScene);
+            accountScene.getStylesheets().add(this.getClass().getResource("/com/example/demo/styling/default.css").toExternalForm());
+            accountScene.getStylesheets().add(getClass().getResource("/com/example/demo/styling/style.css").toExternalForm());
 
 
             //set title, full screen and non-resizable
             primaryStage.setTitle("2048 Game");
-            primaryStage.setFullScreen(true);
             primaryStage.setResizable(false);
 
             //set icon

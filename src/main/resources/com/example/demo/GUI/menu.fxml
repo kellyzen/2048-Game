@@ -30,7 +30,7 @@
                   <Font name="Tw Cen MT Bold" size="56.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="menuChoiceBox" layoutX="712.0" layoutY="89.0" prefHeight="34.0" prefWidth="150.0" value="Default"/>
+            <ChoiceBox fx:id="menuChoiceBox" layoutX="712.0" layoutY="89.0" prefHeight="34.0" prefWidth="150.0" value="Default" />
             <ImageView fx:id="imageView" fitHeight="423.0" fitWidth="444.0" layoutX="55.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/classic.png" />
@@ -55,6 +55,26 @@
                   <Font name="Tw Cen MT Bold" size="26.0" />
                </font>
             </Label>
+            <Label fx:id="usernameLabel" layoutX="116.0" layoutY="30.0" prefHeight="28.0" prefWidth="365.0" text="Username">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="highScoreLabel" alignment="CENTER_RIGHT" layoutX="674.0" layoutY="31.0" prefHeight="28.0" prefWidth="124.0" text="High Score" textAlignment="RIGHT">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="83.0" fitWidth="73.0" layoutX="43.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/username_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="51.0" layoutX="813.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/high_score_icon.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

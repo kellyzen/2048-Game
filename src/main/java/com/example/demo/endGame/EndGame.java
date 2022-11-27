@@ -1,9 +1,12 @@
 package com.example.demo.endGame;
 
+import com.example.demo.account.Account;
+import com.example.demo.account.accountController;
 import com.example.demo.components.buttonComponent.ButtonComponent;
 import com.example.demo.components.dialogComponent.QuitDialog;
 import com.example.demo.components.textComponent.TextComponent;
 import com.example.demo.menu.Menu;
+import com.example.demo.menu.menuController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -90,7 +93,14 @@ public class EndGame {
                 menu.menu(primaryStage);
                 Parent menuRoot = null;
                 try {
-                    menuRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
+                    //menuRoot = FXMLLoader.load(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/GUI/menu.fxml"));
+                    menuRoot = loader.load();
+                    //set username and score
+                    menuController menuController = loader.getController();
+                    Account user = accountController.getUser();
+                    menuController.setUsernameLabel(user.getUsername());
+                    menuController.setHighScoreLabel(user.getScore());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
