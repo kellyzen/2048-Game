@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  */
 
-public class Account implements Comparable<Account> {
+public class Account{
     private long score = 0;
     private String username;
     static String filePath = "src/main/resources/com/example/game/account/account.txt";
@@ -28,11 +28,6 @@ public class Account implements Comparable<Account> {
 
     public Account(String username) throws FileNotFoundException {
         this.username =username;
-    }
-
-    @Override
-    public int compareTo(Account o) {
-        return Long.compare(o.getScore(), score);
     }
 
     public void setScore(long score) {

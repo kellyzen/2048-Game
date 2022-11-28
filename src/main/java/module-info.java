@@ -18,4 +18,6 @@ module com.example.demo {
     exports com.example.game.game.cell;
     opens com.example.game.launch to javafx.fxml;
     exports com.example.game.launch;
+    opens com.example.game.rank to javafx.fxml;
+    exports com.example.game.rank;
 }

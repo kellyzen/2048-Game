@@ -4,8 +4,11 @@ import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.game.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -14,6 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +33,12 @@ public class menuController implements Initializable {
     private Color backgroundScene = Color.rgb(189, 177, 92);
     @FXML Label highScoreLabel;
     @FXML Label usernameLabel;
+    @FXML private ChoiceBox<String> menuChoiceBox;
+
+    private final String[] theme = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
+
+    public menuController() throws IOException {
+    }
 
     public void setUsernameLabel(String text) {
         usernameLabel.setText(text);
@@ -53,7 +64,7 @@ public class menuController implements Initializable {
         this.backgroundScene = backgroundScene;
     }
 
-    public void switchToGame(ActionEvent event) {
+    public void switchToGame() {
         //set root and scene for game
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
@@ -78,14 +89,18 @@ public class menuController implements Initializable {
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
+    Parent rankRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/rank.fxml"));
+    public void switchToRank() {
+        Scene rankScene = new Scene(rankRoot);
+        primaryStage.setScene(rankScene);
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(true);
+        primaryStage.show();
+    }
 
     public void quitGame() {
         new QuitDialog();
     }
-
-    @FXML private ChoiceBox<String> menuChoiceBox;
-
-    private final String[] theme = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -108,22 +123,27 @@ public class menuController implements Initializable {
             case "Dark" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/dark.css").toString());
                 setBackgroundScene(Color.web("#373e43"));
+                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/dark.css").toString());
             }
             case "Light" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/light.css").toString());
                 setBackgroundScene(Color.web("#eee"));
+                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/light.css").toString());
             }
             case "Fantasy" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/fantasy.css").toString());
                 setBackgroundScene(Color.web("#D6B9F3"));
+                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/fantasy.css").toString());
             }
             case "Nymph" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/nymph.css").toString());
                 setBackgroundScene(Color.web("#5c9aaf"));
+                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/nymph.css").toString());
             }
             case "Default" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/default.css").toString());
                 setBackgroundScene(Color.rgb(189, 177, 92));
+                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/default.css").toString());
             }
         }
     }

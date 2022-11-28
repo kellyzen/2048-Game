@@ -21,7 +21,7 @@
    <children>
       <AnchorPane fx:id="menuPane" prefHeight="600.0" prefWidth="900.0">
          <children>
-            <Button layoutX="527.0" layoutY="378.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="43.0" prefWidth="150.0" text="Start Game">
+            <Button layoutX="620.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="43.0" prefWidth="150.0" text="Start Game">
                <font>
                   <Font name="Lucida Console" size="19.0" />
                </font></Button>
@@ -35,7 +35,7 @@
                <image>
                   <Image url="@../images/classic.png" />
                </image></ImageView>
-            <Button layoutX="714.0" layoutY="378.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="43.0" prefWidth="150.0" text="Quit">
+            <Button layoutX="712.0" layoutY="447.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="43.0" prefWidth="150.0" text="Quit">
                <font>
                   <Font name="Lucida Console" size="19.0" />
                </font>
@@ -75,6 +75,11 @@
                   <Image url="@../images/high_score_icon.png" />
                </image>
             </ImageView>
+            <Button layoutX="527.0" layoutY="447.0" mnemonicParsing="false" onAction="#switchToRank" prefHeight="43.0" prefWidth="150.0" text="Rank">
+               <font>
+                  <Font name="Lucida Console" size="19.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
