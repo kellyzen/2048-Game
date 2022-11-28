@@ -2,20 +2,20 @@ module com.example.demo {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.example.demo to javafx.fxml;
-    exports com.example.demo;
-    exports com.example.demo.endGame;
-    opens com.example.demo.endGame to javafx.fxml;
-    exports com.example.demo.game;
-    opens com.example.demo.game to javafx.fxml;
-    exports com.example.demo.account;
-    opens com.example.demo.account to javafx.fxml;
-    exports com.example.demo.menu;
-    opens com.example.demo.menu to javafx.fxml;
-    exports com.example.demo.game.move;
-    opens com.example.demo.game.move to javafx.fxml;
-    opens com.example.demo.game.cell to javafx.fxml;
-    exports com.example.demo.game.cell;
-    opens com.example.demo.launch to javafx.fxml;
-    exports com.example.demo.launch;
+    opens com.example.game to javafx.fxml;
+    exports com.example.game;
+    exports com.example.game.endGame;
+    opens com.example.game.endGame to javafx.fxml;
+    exports com.example.game.game;
+    opens com.example.game.game to javafx.fxml;
+    exports com.example.game.account;
+    opens com.example.game.account to javafx.fxml;
+    exports com.example.game.menu;
+    opens com.example.game.menu to javafx.fxml;
+    exports com.example.game.game.move;
+    opens com.example.game.game.move to javafx.fxml;
+    opens com.example.game.game.cell to javafx.fxml;
+    exports com.example.game.game.cell;
+    opens com.example.game.launch to javafx.fxml;
+    exports com.example.game.launch;
 }

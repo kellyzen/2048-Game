@@ -1,5 +1,5 @@
-module:com.example.demo
-com.example.demo
-com.example.demo.account
-com.example.demo.endGame
-com.example.demo.game
+module:com.example.game
+com.example.game
+com.example.game.account
+com.example.game.endGame
+com.example.game.game
