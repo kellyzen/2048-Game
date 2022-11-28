@@ -7,6 +7,7 @@ import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.components.textComponent.TextComponent;
 import com.example.game.menu.Menu;
 import com.example.game.menu.menuController;
+import com.example.game.theme.Theme;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -93,7 +94,6 @@ public class EndGame {
                 menu.menu(primaryStage);
                 Parent menuRoot = null;
                 try {
-                    //menuRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/menu.fxml"));
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
                     menuRoot = loader.load();
                     //set username and score
@@ -106,8 +106,8 @@ public class EndGame {
                 }
                 Scene menuScene = new Scene(menuRoot);
                 primaryStage.setScene(menuScene);
-                String css = this.getClass().getResource("/com/example/game/styling/default.css").toExternalForm();
-                menuScene.getStylesheets().add(css);
+                String themePath = Theme.getTheme();
+                menuRoot.getStylesheets().add(getClass().getResource(themePath).toString());
                 primaryStage.setFullScreen(true);
             }
         });

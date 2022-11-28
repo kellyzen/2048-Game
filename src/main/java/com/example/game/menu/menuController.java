@@ -2,6 +2,7 @@ package com.example.game.menu;
 
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.game.GameScene;
+import com.example.game.theme.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,16 +30,14 @@ public class menuController implements Initializable {
     Stage primaryStage = Menu.getPrimaryStage();
     private Group gameRoot = new Group();
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
+    Theme newTheme = new Theme();
 
-    private Color backgroundScene = Color.rgb(189, 177, 92);
+    private Color backgroundScene;
     @FXML Label highScoreLabel;
     @FXML Label usernameLabel;
     @FXML private ChoiceBox<String> menuChoiceBox;
 
     private final String[] theme = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
-
-    public menuController() throws IOException {
-    }
 
     public void setUsernameLabel(String text) {
         usernameLabel.setText(text);
@@ -65,16 +64,19 @@ public class menuController implements Initializable {
     }
 
     public void switchToGame() {
+        String themePath = Theme.getTheme();
+        changeBackgroundScene();
         //set root and scene for game
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
+        gameRoot.getStylesheets().add(getClass().getResource(themePath).toString());
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, backgroundScene);
         setGameScene(gameScene);
         primaryStage.setScene(gameScene);
-
         //set root and scene for end game
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, backgroundScene);
+        endgameRoot.getStylesheets().add(getClass().getResource(themePath).toString());
 
         //reset game  mode
         changeImage();
@@ -89,9 +91,11 @@ public class menuController implements Initializable {
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
-    Parent rankRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/rank.fxml"));
-    public void switchToRank() {
+    public void switchToRank() throws IOException {
+        String themePath = Theme.getTheme();
+        Parent rankRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/rank.fxml"));
         Scene rankScene = new Scene(rankRoot);
+        rankRoot.getStylesheets().add(getClass().getResource(themePath).toString());
         primaryStage.setScene(rankScene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
@@ -122,28 +126,45 @@ public class menuController implements Initializable {
         switch (theme) {
             case "Dark" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/dark.css").toString());
-                setBackgroundScene(Color.web("#373e43"));
-                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/dark.css").toString());
+                newTheme.newTheme("Dark");
             }
             case "Light" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/light.css").toString());
-                setBackgroundScene(Color.web("#eee"));
-                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/light.css").toString());
+                newTheme.newTheme("Light");
             }
             case "Fantasy" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/fantasy.css").toString());
-                setBackgroundScene(Color.web("#D6B9F3"));
-                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/fantasy.css").toString());
+                newTheme.newTheme("Fantasy");
             }
             case "Nymph" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/nymph.css").toString());
-                setBackgroundScene(Color.web("#5c9aaf"));
-                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/nymph.css").toString());
+                newTheme.newTheme("Nymph");
             }
             case "Default" -> {
                 menuChoiceBox.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/default.css").toString());
+                newTheme.newTheme("Default");
+            }
+        }
+
+        changeBackgroundScene();
+    }
+
+    private void changeBackgroundScene() {
+        switch(Theme.getTheme()){
+            case "/com/example/game/styling/dark.css" -> {
+                setBackgroundScene(Color.web("#373e43"));
+            }
+            case "/com/example/game/styling/light.css" -> {
+                setBackgroundScene(Color.web("#eee"));
+            }
+            case "/com/example/game/styling/fantasy.css" -> {
+                setBackgroundScene(Color.web("#D6B9F3"));
+            }
+            case "/com/example/game/styling/nymph.css" -> {
+                setBackgroundScene(Color.web("#5c9aaf"));
+            }
+            case "/com/example/game/styling/default.css" -> {
                 setBackgroundScene(Color.rgb(189, 177, 92));
-                rankRoot.getStylesheets().add(getClass().getResource("/com/example/game/styling/default.css").toString());
             }
         }
     }

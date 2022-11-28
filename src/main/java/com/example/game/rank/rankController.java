@@ -2,6 +2,7 @@ package com.example.game.rank;
 
 import com.example.game.account.accountController;
 import com.example.game.menu.menuController;
+import com.example.game.theme.Theme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,11 +81,13 @@ public class rankController implements Initializable{
         menuController menu = loader.getController();
         menu.setUsernameLabel(accountController.getUser().getUsername());
         menu.setHighScoreLabel(accountController.getUser().getScore());
+        //get current theme
+        String themePath = Theme.getTheme();
         //switch to menu
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         menuScene = new Scene(menuRoot);
         primaryStage.setScene(menuScene);
-        menuScene.getStylesheets().add(this.getClass().getResource("/com/example/game/styling/default.css").toExternalForm());
+        menuScene.getStylesheets().add(this.getClass().getResource(themePath).toExternalForm());
         menuScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
         primaryStage.setFullScreen(true);
         primaryStage.show();
