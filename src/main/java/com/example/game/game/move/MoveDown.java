@@ -3,6 +3,16 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * MoveDown class.
+ * Implements Movable interface.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class MoveDown implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
@@ -10,9 +20,9 @@ public class MoveDown implements Movable {
 
     /**
      *
-     * called when clicked 's' or down arrow keyboard
-     * all cells in the board moves downward
-     * calls moveVertically
+     * Called when clicked 's' or down arrow key.
+     * All cells in the board moves downward.
+     * Calls moveVertically() and passDestination().
      */
     @Override
     public void move() {
@@ -28,11 +38,11 @@ public class MoveDown implements Movable {
 
     /**
      *
-     * change the position of cell downward
+     * Change the position of cell downward.
      *
      * @param i row
      * @param j column
-     * @return int
+     * @return int coordinate
      */
     private int passDestination(int i, int j) {
         int coordinate = i;

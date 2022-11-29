@@ -3,6 +3,16 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * MoveUp class.
+ * Implements Movable interface.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class MoveUp implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
@@ -10,9 +20,10 @@ public class MoveUp implements Movable {
 
     /**
      *
-     * called when clicked 'w' or up arrow keyboard
-     * all cells in the board moves upward
-     * calls moveVertically
+     * Called when clicked 'w' or up arrow key.
+     * All cells in the board moves upward
+     * Calls moveVertically() and passDestination()
+     *
      */
     @Override
     public void move() {
@@ -28,11 +39,11 @@ public class MoveUp implements Movable {
 
     /**
      *
-     * change the position of cell upward
+     * Change the position of cell upward.
      *
      * @param i row
      * @param j column
-     * @return int
+     * @return int coordinate
      */
     private int passDestination(int i, int j) {
         int coordinate = i;

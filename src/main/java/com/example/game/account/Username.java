@@ -17,8 +17,8 @@ public class Username {
      *
      * Check if player's username is valid.
      * Check username from player's input text field (usernameField).
-     * If username is valid, return true.
-     * If username is not valid, return false.
+     * If username is valid ([3,15], no blank space, is letter or digit only), return true.
+     * If username is not valid (<3, >15, have blank space, have special char), return false.
      *
      * @param username player's username
      * @return boolean

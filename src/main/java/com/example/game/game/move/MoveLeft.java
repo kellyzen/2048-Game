@@ -3,6 +3,16 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * MoveLeft class.
+ * Implements Movable interface.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class MoveLeft implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
@@ -10,9 +20,9 @@ public class MoveLeft implements Movable {
 
     /**
      *
-     * called when clicked 'a' or left arrow keyboard
-     * all cells in the board moves left
-     * calls moveHorizontally
+     * Called when clicked 'a' or left arrow key.
+     * All cells in the board moves left.
+     * Calls moveHorizontally() and passDestination().
      */
     @Override
     public void move() {
@@ -28,11 +38,11 @@ public class MoveLeft implements Movable {
 
     /**
      *
-     * change the position of cell leftward
+     * Change the position of cell leftward.
      *
      * @param i row
      * @param j column
-     * @return int
+     * @return int coordinate
      */
     private int passDestination(int i, int j) {
         int coordinate = j;

@@ -1,13 +1,27 @@
 package com.example.game.theme;
 
-import javafx.scene.paint.Color;
-
+/**
+ *
+ * Theme class.
+ * Set overall game theme colour.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class Theme{
     private static String theme = "/com/example/game/styling/default.css";
     public static String getTheme() {
         return theme;
     }
 
+    /**
+     *
+     * Change theme css path based on player's choice from dropdown.
+     *
+     * @param newTheme name of new theme
+     */
     public void newTheme(String newTheme) {
         switch (newTheme) {
             case "Dark" -> {

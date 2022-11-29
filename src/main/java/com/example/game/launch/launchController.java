@@ -17,6 +17,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *
+ * LaunchController class.
+ * Controller class for launch.fxml
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class launchController implements Initializable {
     private static Stage primaryStage;
     @FXML private ImageView logo;
@@ -24,10 +34,22 @@ public class launchController implements Initializable {
     @FXML private Label credit;
     @FXML private Button playButton;
 
+    /**
+     *
+     * Set primary stage for launch scene.
+     *
+     * @param primaryStage stage
+     *
+     */
     public void launch(Stage primaryStage) {
         launchController.primaryStage = primaryStage;
     }
 
+    /**
+     *
+     * Fade transition for logo, text and button on start game.
+     *
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // fade transition
@@ -37,6 +59,13 @@ public class launchController implements Initializable {
         fadeTransition(playButton, 8000);
     }
 
+    /**
+     *
+     * Set fade transition item
+     *
+     * @param item Node item to be transitioned
+     * @param duration time duration for fade transition
+     */
     private void fadeTransition(Node item, double duration) {
         FadeTransition fade = new FadeTransition();
         fade.setNode(item);
@@ -47,6 +76,11 @@ public class launchController implements Initializable {
         fade.play();
     }
 
+    /**
+     *
+     * Switch to account scene when play button is clicked.
+     *
+     */
     public void switchToAccount() {
         Parent accountRoot = null;
         try {

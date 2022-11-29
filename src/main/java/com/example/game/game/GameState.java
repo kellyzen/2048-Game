@@ -2,17 +2,27 @@ package com.example.game.game;
 
 import com.example.game.game.cell.Cell;
 
+/**
+ *
+ * GameState class.
+ * Determine current game status (win/lose/on going).
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class GameState {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
 
     /**
      *
-     * determine the state of game (win/lose)
-     * check if there is empty cell
-     * return 1 if there are empty cell
-     * return 0 if there are cell with number 2048 (win)
-     * return -1 if there are no empty cell available
+     * Determine the state of game (win/lose).
+     * Check if there is empty cell.
+     * Return 1 if there is empty cell.
+     * Return 0 if there is cell with number 2048 (win).
+     * Return -1 if there is no empty cell available (maybe lose).
      *
      * @return int
      */
@@ -30,8 +40,8 @@ public class GameState {
 
     /**
      *
-     * checks whether there are neighbouring tiles with same value
-     * either horizontally or vertically
+     * Checks whether there is neighbouring cell with same value.
+     * Either horizontally or vertically.
      *
      * @return boolean
      */
@@ -47,7 +57,9 @@ public class GameState {
 
     /**
      *
-     * checks whether the tiles can move or not when fulled
+     * Checks whether the tiles can move when no empty cell.
+     * Return true if all tiles cannot move and have no same number nearly.
+     * Return false if some tiles have same number nearly.
      *
      * @return boolean
      */

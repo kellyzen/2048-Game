@@ -16,7 +16,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,6 +24,16 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+/**
+ *
+ * RankController class.
+ * Controller class for rank.fxml
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class rankController implements Initializable{
     static String filePath = "src/main/resources/com/example/game/account/account.txt";
     static FileInputStream fileInput;
@@ -32,19 +41,21 @@ public class rankController implements Initializable{
     Scene menuScene;
     Parent menuRoot;
 
-    @FXML
-    private TableView<Rank> rankTable;
-
-    @FXML
-    private TableColumn<Rank, Long> tHighScore;
-
-    @FXML
-    private TableColumn<Rank, String> tUsername;
+    @FXML private TableView<Rank> rankTable;
+    @FXML private TableColumn<Rank, Long> tHighScore;
+    @FXML private TableColumn<Rank, String> tUsername;
     static ObservableList<Rank> list = FXCollections.observableArrayList();
 
     // sort the Rank class by high score in ascending order
     Comparator<Rank> comparator = Comparator.comparingLong(Rank::getHighScore).reversed();
 
+    /**
+     *
+     * Read account.txt.
+     * Set username and high score column.
+     * Display values in rankTable.
+     *
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tUsername.setCellValueFactory(new PropertyValueFactory<Rank, String>("username"));
@@ -58,7 +69,14 @@ public class rankController implements Initializable{
         rankTable.setItems(list);
     }
 
+    /**
+     *
+     * Read from file (account.txt) line by line.
+     * Set the player's username and high score in Rank class.
+     *
+     */
     private static void readFile() throws IOException {
+        //clear list to prevent duplicate inputs
         list.clear();
         try {
             fileInput = new FileInputStream(filePath);
@@ -74,6 +92,14 @@ public class rankController implements Initializable{
         scanner.close();
     }
 
+    /**
+     *
+     * Calls checkAccount().
+     * Called when submit button is clicked.
+     * Switch to menu scene when button is clicked.
+     *
+     * @param event action event
+     */
     public void switchToMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
         menuRoot = loader.load();

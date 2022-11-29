@@ -3,6 +3,16 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * MoveRight class.
+ * Implements Movable interface.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class MoveRight implements Movable {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
@@ -10,9 +20,9 @@ public class MoveRight implements Movable {
 
     /**
      *
-     * called when clicked 'd' or right arrow keyboard
-     * all cells in the board moves right
-     * calls moveHorizontally
+     * Called when clicked 'd' or right arrow key.
+     * All cells in the board moves right.
+     * Calls moveHorizontally() and passDestination().
      */
     @Override
     public void move() {
@@ -28,11 +38,11 @@ public class MoveRight implements Movable {
 
     /**
      *
-     * change the position of cell rightward
+     * Change the position of cell rightward.
      *
      * @param i row
      * @param j column
-     * @return int
+     * @return int coordinate
      */
     private int passDestination(int i, int j) {
         int coordinate = j;
