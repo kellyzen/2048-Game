@@ -12,18 +12,48 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import static java.util.Objects.isNull;
 
+/**
+ *
+ * AccountController class.
+ * Controller class for account.fxml
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class accountController {
     @FXML TextField usernameField;
     private static Account user = null;
 
+    /**
+     *
+     * Get player's account.
+     *
+     * @return player's Account
+     */
     public static Account getUser() {
         return user;
     }
 
+    /**
+     *
+     * Set player's account.
+     *
+     * @param user player's account
+     */
     public static void setUser(Account user) {
         accountController.user = user;
     }
 
+    /**
+     *
+     * Calls checkAccount().
+     * Called when submit button is clicked.
+     * Switch to menu scene if account created successfully.
+     *
+     * @param event action event
+     */
     public void switchToMenu(ActionEvent event) throws IOException {
         //if account created successfully then proceed to Menu
         if (checkAccount()){
@@ -45,9 +75,19 @@ public class accountController {
         }
     }
 
+    /**
+     *
+     * Check if the account exists/created before proceeding to game.
+     * If account does not exist then call makeNewAccount().
+     * If account existed then set player's username.
+     *
+     * @return boolean
+     */
     private boolean checkAccount() throws IOException {
         String username = usernameField.getText();
+        //if username is valid
         if(Username.usernameIsValid(username)) {
+            //if account not exist, then create new account and append to txt file
             if (isNull(Account.accountExist(username))){
                 setUser(Account.makeNewAccount(username));
                 FileHandler.writeFile(username+".0\n");
@@ -59,7 +99,12 @@ public class accountController {
         return false;
     }
 
-    public void clearField(ActionEvent actionEvent) {
+    /**
+     *
+     * Remove all text in usernameField.
+     *
+     */
+    public void clearField() {
         usernameField.setText("");
     }
 }

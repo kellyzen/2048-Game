@@ -2,7 +2,27 @@ package com.example.game.account;
 
 import com.example.game.components.dialogComponent.WarningDialog;
 
+/**
+ *
+ * Username class.
+ * Check player's username before start game.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class Username {
+    /**
+     *
+     * Check if player's username is valid.
+     * Check username from player's input text field (usernameField).
+     * If username is valid, return true.
+     * If username is not valid, return false.
+     *
+     * @param username player's username
+     * @return boolean
+     */
     public static boolean usernameIsValid(String username) {
         // return true if the length of username is > 2 or <=15
         if (username.length()<15 && username.length()>2){
@@ -26,6 +46,14 @@ public class Username {
             return false;
         }
     }
+
+    /**
+     *
+     * If username is not valid, warning dialog will pop out.
+     * Warning dialog informs the player on their relative mistake.
+     *
+     * @param context context of warning dialog
+     */
     private static void usernameInvalidDialog(String context) {
         WarningDialog warningDialog = new WarningDialog();
         warningDialog.createDialog("Warning Dialog", "Invalid username", context);
