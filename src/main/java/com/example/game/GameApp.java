@@ -34,7 +34,7 @@ public class GameApp extends Application {
             Scene launchScene = new Scene(launchRoot);
             primaryStage.setScene(launchScene);
 
-            //set title, full screen and non-resizable
+            //set title and non-resizable screen
             primaryStage.setTitle("2048 Game");
             primaryStage.setResizable(false);
 

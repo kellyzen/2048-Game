@@ -14,9 +14,6 @@ import static java.util.Objects.isNull;
 
 public class accountController {
     @FXML TextField usernameField;
-    private Stage primaryStage;
-    private Scene menuScene;
-    private Parent menuRoot;
     private static Account user = null;
 
     public static Account getUser() {
@@ -31,15 +28,15 @@ public class accountController {
         //if account created successfully then proceed to Menu
         if (checkAccount()){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
-            menuRoot = loader.load();
+            Parent menuRoot = loader.load();
             //set username and score
             menuController menu = loader.getController();
             menu.setUsernameLabel(user.getUsername());
             menu.setHighScoreLabel(user.getScore());
 
             //switch to menu
-            primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            menuScene = new Scene(menuRoot);
+            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene menuScene = new Scene(menuRoot);
             primaryStage.setScene(menuScene);
             menuScene.getStylesheets().add(this.getClass().getResource("/com/example/game/styling/default.css").toExternalForm());
             menuScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
@@ -53,7 +50,7 @@ public class accountController {
         if(Username.usernameIsValid(username)) {
             if (isNull(Account.accountExist(username))){
                 setUser(Account.makeNewAccount(username));
-                Account.writeFile(username+".0\n");
+                FileHandler.writeFile(username+".0\n");
             }else {
                 setUser(Account.accountExist(username));
             }
