@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
  * @author Coursework: COMP2042
  *
  */
-public class BackgroundScene {
+public class BackgroundScene implements IBackgroundScene{
     private static final String path = "/com/example/game/styling/";
 
     /**
