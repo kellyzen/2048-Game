@@ -3,6 +3,16 @@ package com.example.game.theme;
 import com.example.game.menu.menuController;
 import javafx.scene.paint.Color;
 
+/**
+ *
+ * BackgroundScene class.
+ * Set game background colour based on theme chosen.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class BackgroundScene {
     private static final String path = "/com/example/game/styling/";
 
