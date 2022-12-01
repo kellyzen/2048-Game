@@ -3,6 +3,7 @@ package com.example.game.menu;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.game.GameMode;
 import com.example.game.game.GameScene;
+import com.example.game.theme.BackgroundScene;
 import com.example.game.theme.Theme;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -109,9 +110,9 @@ public class menuController implements Initializable {
      *
      */
     public void switchToGame() {
-        Theme newTheme = new Theme();
+        BackgroundScene backgroundColor = new BackgroundScene();
         String themePath = Theme.getTheme();
-        newTheme.changeBackgroundScene();
+        backgroundColor.changeBackgroundScene(themePath);
 
         //set root and scene for game
         Group gameRoot = new Group();
@@ -188,7 +189,9 @@ public class menuController implements Initializable {
         String theme = menuChoiceBox.getValue();
         newTheme.removeAllTheme(menuChoiceBox);
         newTheme.changeTheme(theme, menuChoiceBox);
-        newTheme.changeBackgroundScene();
+        BackgroundScene backgroundColor = new BackgroundScene();
+        String themePath = Theme.getTheme();
+        backgroundColor.changeBackgroundScene(themePath);
     }
 
     /**
