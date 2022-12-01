@@ -23,7 +23,7 @@ import java.io.IOException;
  * GameScene class.
  * Shows when the game started.
  *
- *@author Kelly Kai Ling Tan-modified
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *

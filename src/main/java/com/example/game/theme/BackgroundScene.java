@@ -20,6 +20,8 @@ public class BackgroundScene implements IBackgroundScene{
      *
      * Change background scene colour for all scene when a theme is selected.
      *
+     * @param theme theme name
+     *
      */
     public void changeBackgroundScene(String theme) {
         switch(theme){
