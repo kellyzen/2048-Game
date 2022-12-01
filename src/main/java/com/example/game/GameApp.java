@@ -1,6 +1,6 @@
 package com.example.game;
 
-import com.example.game.launch.launchController;
+import com.example.game.launch.LaunchController;
 import com.example.game.menu.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +28,7 @@ public class GameApp extends Application {
             menu.menu(primaryStage);
 
             //launch game scene
-            launchController launch = new launchController();
+            LaunchController launch = new LaunchController();
             launch.launch(primaryStage);
             Parent launchRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/launch.fxml"));
             Scene launchScene = new Scene(launchRoot);

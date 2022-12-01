@@ -1,6 +1,6 @@
 package com.example.game.theme;
 
-import com.example.game.menu.menuController;
+import com.example.game.menu.MenuController;
 import javafx.scene.paint.Color;
 
 /**
@@ -26,19 +26,19 @@ public class BackgroundScene implements IBackgroundScene{
     public void changeBackgroundScene(String theme) {
         switch(theme){
             case path+"dark.css" -> {
-                menuController.setBackgroundScene(Color.web("#373e43"));
+                MenuController.setBackgroundScene(Color.web("#373e43"));
             }
             case path+"light.css" -> {
-                menuController.setBackgroundScene(Color.web("#eee"));
+                MenuController.setBackgroundScene(Color.web("#eee"));
             }
             case path+"fantasy.css" -> {
-                menuController.setBackgroundScene(Color.web("#D6B9F3"));
+                MenuController.setBackgroundScene(Color.web("#D6B9F3"));
             }
             case path+"nymph.css" -> {
-                menuController.setBackgroundScene(Color.web("#5c9aaf"));
+                MenuController.setBackgroundScene(Color.web("#5c9aaf"));
             }
             case path+"default.css" -> {
-                menuController.setBackgroundScene(Color.rgb(189, 177, 92));
+                MenuController.setBackgroundScene(Color.rgb(189, 177, 92));
             }
         }
     }

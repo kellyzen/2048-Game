@@ -1,8 +1,6 @@
 package com.example.game.theme;
 
-import com.example.game.menu.menuController;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.paint.Color;
 
 /**
  *

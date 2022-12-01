@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
  * @author Coursework: COMP2042
  *
  */
-public class menuController implements Initializable {
+public class MenuController implements Initializable {
     static final int WIDTH = 900;
     static final int HEIGHT = 600;
     Stage primaryStage = Menu.getPrimaryStage();
@@ -101,7 +101,7 @@ public class menuController implements Initializable {
      * @param backgroundScene background scene
      */
     public static void setBackgroundScene(Color backgroundScene) {
-        menuController.backgroundScene = backgroundScene;
+        MenuController.backgroundScene = backgroundScene;
     }
 
     /**

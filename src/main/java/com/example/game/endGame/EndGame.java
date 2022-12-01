@@ -1,12 +1,12 @@
 package com.example.game.endGame;
 
 import com.example.game.account.Account;
-import com.example.game.account.accountController;
+import com.example.game.account.AccountController;
 import com.example.game.components.buttonComponent.ButtonComponent;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.components.textComponent.TextComponent;
 import com.example.game.menu.Menu;
-import com.example.game.menu.menuController;
+import com.example.game.menu.MenuController;
 import com.example.game.theme.Theme;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -105,8 +105,8 @@ public class EndGame {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
                     menuRoot = loader.load();
                     //set username and score
-                    menuController menuController = loader.getController();
-                    Account user = accountController.getUser();
+                    MenuController menuController = loader.getController();
+                    Account user = AccountController.getUser();
                     menuController.setUsernameLabel(user.getUsername());
                     menuController.setHighScoreLabel(user.getScore());
                 } catch (IOException e) {

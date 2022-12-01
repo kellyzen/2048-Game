@@ -1,7 +1,7 @@
 package com.example.game.rank;
 
-import com.example.game.account.accountController;
-import com.example.game.menu.menuController;
+import com.example.game.account.AccountController;
+import com.example.game.menu.MenuController;
 import com.example.game.theme.Theme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +34,7 @@ import java.util.Scanner;
  * @author Coursework: COMP2042
  *
  */
-public class rankController implements Initializable{
+public class RankController implements Initializable{
     static String filePath = "src/main/resources/com/example/game/account/account.txt";
     static FileInputStream fileInput;
     Stage primaryStage;
@@ -104,9 +104,9 @@ public class rankController implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
         menuRoot = loader.load();
         //set username and score
-        menuController menu = loader.getController();
-        menu.setUsernameLabel(accountController.getUser().getUsername());
-        menu.setHighScoreLabel(accountController.getUser().getScore());
+        MenuController menu = loader.getController();
+        menu.setUsernameLabel(AccountController.getUser().getUsername());
+        menu.setHighScoreLabel(AccountController.getUser().getScore());
         //get current theme
         String themePath = Theme.getTheme();
         //switch to menu

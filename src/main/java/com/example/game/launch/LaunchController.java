@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
  * @author Coursework: COMP2042
  *
  */
-public class launchController implements Initializable {
+public class LaunchController implements Initializable {
     private static Stage primaryStage;
     @FXML private ImageView logo;
     @FXML private Label title;
@@ -42,7 +42,7 @@ public class launchController implements Initializable {
      *
      */
     public void launch(Stage primaryStage) {
-        launchController.primaryStage = primaryStage;
+        LaunchController.primaryStage = primaryStage;
     }
 
     /**

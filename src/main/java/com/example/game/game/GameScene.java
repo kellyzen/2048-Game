@@ -1,7 +1,7 @@
 package com.example.game.game;
 
 import com.example.game.account.Account;
-import com.example.game.account.accountController;
+import com.example.game.account.AccountController;
 import com.example.game.components.dialogComponent.CongratulationDialog;
 import com.example.game.components.textComponent.TextComponent;
 import com.example.game.endGame.EndGame;
@@ -214,7 +214,7 @@ public class GameScene {
                         haveEmptyCell = gameState.haveEmptyCell();
                         if (haveEmptyCell == -1) {
                             if (gameState.canNotMove()) {
-                                Account user = accountController.getUser();
+                                Account user = AccountController.getUser();
                                 if(score > user.getScore()) {
                                     try {
                                         user.updateScore(score);
@@ -236,7 +236,7 @@ public class GameScene {
                         }
                     }
                     case G -> {
-                        Account user = accountController.getUser();
+                        Account user = AccountController.getUser();
                         if(score > user.getScore()) {
                             try {
                                 user.updateScore(score);

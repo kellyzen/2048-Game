@@ -18,7 +18,7 @@ public class Menu {
     /**
      *
      * Constructor for Menu
-     * set and get stage for menuController
+     * set and get stage for MenuController
      *
      * @param primaryStage stage for Menu
      */
