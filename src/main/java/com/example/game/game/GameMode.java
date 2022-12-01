@@ -4,6 +4,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ *
+ * GameMode class.
+ * Change the game mode.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class GameMode {
     private int mode = 1;
     private static int n = 4;
@@ -14,19 +24,47 @@ public class GameMode {
     Image largeMode = new Image(getClass().getResourceAsStream(path+"large.png"));
     Image hugeMode = new Image(getClass().getResourceAsStream(path+"huge.png"));
 
+    /**
+     *
+     * Get number of grid(n).
+     *
+     * @return int number of grid(n)
+     */
     public static int getN() {
         return n;
     }
 
+    /**
+     *
+     * Triggered when next (>) button is clicked.
+     * Increase mode value by 1 to change to next game mode.
+     *
+     */
     public void nextMode() {
         mode = (mode + 1) % numOfMode;
     }
 
+    /**
+     *
+     * Triggered when next (<) button is clicked.
+     * Decrease mode value by 1 to change to previous game mode.
+     *
+     */
     public void prevMode() {
         mode = (mode - 1) % numOfMode;
     }
 
-    public void changeImage(ImageView imageView, Label label) {
+    /**
+     *
+     * Triggered when next or previous (<) button is clicked.
+     * Change image and label for the game mode.
+     * Set number of grid(n).
+     *
+     * @param imageView Image for game mode
+     * @param label Label name for game mode
+     *
+     */
+    public void changeMode(ImageView imageView, Label label) {
         switch (mode) {
             case 0 -> {
                 imageView.setImage(tinyMode);
