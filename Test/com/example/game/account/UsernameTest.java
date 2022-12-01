@@ -1,8 +1,8 @@
 package com.example.game.account;
 
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
+import com.example.game.components.dialogComponent.WarningDialog;
 
 class UsernameTest {
     @BeforeAll
@@ -13,19 +13,19 @@ class UsernameTest {
     @Nested
     class ValidUsername {
         @Test
-        @DisplayName("Username contains both digits and letters")
+        @DisplayName("Username contains both digits and letters > 2 characters but < 16 characters")
         void usernameOnlyDigitsAndLetters() {
             assertTrue(Username.usernameIsValid("user123"));
         }
 
         @Test
-        @DisplayName("Username contains only letters")
+        @DisplayName("Username contains only letters > 2 characters but < 16 characters")
         void usernameOnlyLetters() {
             assertTrue(Username.usernameIsValid("user"));
         }
 
         @Test
-        @DisplayName("Username contains only digits > 2 characters but less than 16 characters")
+        @DisplayName("Username contains only digits > 2 characters but < 16 characters")
         void usernameOnlyDigits() {
             assertTrue(Username.usernameIsValid("123"));
         }
@@ -34,22 +34,28 @@ class UsernameTest {
     @Nested
     class InvalidUsername {
         @Test
-        @DisplayName("Invalid input")
+        @DisplayName("Username contains special character")
         void usernameIsNotDigitOrLetters() {
-            assertFalse(Username.usernameIsValid("kelly#@"));
+            assertFalse(Username.usernameIsValid("user#@"));
         }
 
         @Test
-        @DisplayName("Invalid input")
-        void usernameIsBlank() {
-            assertFalse(Username.usernameIsValid(""));
+        @DisplayName("Username < 3 characters")
+        void username2Char() {
+            assertFalse(Username.usernameIsValid("01"));
         }
 
         @Test
-        @DisplayName("Invalid input")
+        @DisplayName("Username >15 characters")
+        void username16Char() {
+            assertFalse(Username.usernameIsValid("users01234567890"));
+        }
+
+        @Test
+        @DisplayName("Username >15 characters")
         void usernameIsRunTime() {
             Assertions.assertThrows(ExceptionInInitializerError.class, () -> {
-                Username.usernameIsValid("");
+                Username.usernameIsValid("users01234567890");
             });
         }
     }

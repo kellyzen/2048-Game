@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 
 /**
  *
+ * TextMaker class.
  * Create text with specific font attributes and color.
  *
  * @author Kelly Kai Ling Tan-modified
@@ -19,10 +20,20 @@ import javafx.scene.text.Text;
 public class TextMaker {
     private static TextMaker singleInstance = null;
 
+    /**
+     *
+     * Constructor for TextMaker class.
+     *
+     */
     private TextMaker() {
 
     }
 
+    /**
+     *
+     * Singleton design pattern for text maker.
+     *
+     */
     public static TextMaker getSingleInstance() {
         if (singleInstance == null)
             singleInstance = new TextMaker();
@@ -31,7 +42,7 @@ public class TextMaker {
 
     /**
      *
-     * create new text with specific font attributes and color
+     * Create new text with specific font attributes and color.
      *
      * @param input string text to be created
      * @param xCell x-position of the cell
@@ -53,7 +64,7 @@ public class TextMaker {
 
     /**
      *
-     * exchange two text values
+     * Exchange two cell's text values.
      *
      * @param first first text value
      * @param second second text value

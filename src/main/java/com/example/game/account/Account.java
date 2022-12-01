@@ -35,7 +35,7 @@ public class Account{
      *
      * Set player's high score.
      *
-     * @param score high score
+     * @param score player's high score
      */
     public void setScore(long score) {
         this.score = score;
@@ -45,7 +45,7 @@ public class Account{
      *
      * Get player's high score.
      *
-     * @return long high score
+     * @return long player's high score
      */
     public long getScore() {
         return score;

@@ -1,7 +1,7 @@
 package com.example.game.game;
 
 import com.example.game.account.Account;
-import com.example.game.account.accountController;
+import com.example.game.account.AccountController;
 import com.example.game.components.dialogComponent.CongratulationDialog;
 import com.example.game.components.textComponent.TextComponent;
 import com.example.game.endGame.EndGame;
@@ -16,14 +16,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
  *
+ * GameScene class.
  * Shows when the game started.
  *
- *@author Kelly Kai Ling Tan-modified
+ * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
@@ -42,43 +42,101 @@ public class GameScene {
 
     /**
      *
-     * determine n x n
+     * Set game grid (n x n).
+     * Number of cells per row & column.
      *
-     * @param number number of cells per row & column
+     * @param number grid number (n)
      */
     public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
 
+    /**
+     *
+     * Get game grid (n x n).
+     * Number of cells per row & column.
+     *
+     * @return int grid number (n)
+     */
     public static int getN() {
         return n;
     }
 
+    /**
+     *
+     * Get cell.
+     *
+     * @return cell
+     */
     public static Cell[][] getCell() {
         return cells;
     }
 
+    /**
+     *
+     * Get length of cell.
+     *
+     * @return double length of cell
+     */
     public static double getLENGTH() {
         return LENGTH;
     }
 
+    /**
+     *
+     * Get current game score.
+     *
+     * @return long game score
+     */
     public static long getScore() {
         return score;
     }
 
+    /**
+     *
+     * Set newest game score.
+     *
+     * @param score current game score
+     */
     public static void setScore(long score) {
         GameScene.score = score;
     }
 
+    /**
+     *
+     * Get the highest tile achieved.
+     *
+     * @return highest tile number
+     */
     public static long getHighestTile() {
         return highestTile;
     }
 
+    /**
+     *
+     * Set newest highest tile achieved.
+     *
+     * @param highestTile highest tile number
+     */
     public static void setHighestTile(long highestTile) {
         GameScene.highestTile = highestTile;
     }
 
+    /**
+     *
+     * Stage game scene.
+     * Styled using css styling.
+     * Display header text, score, highest tile and instructions.
+     * Detects any key events (arrow/AWSD/G keys).
+     * Switch to end game scene when game ends.
+     *
+     * @param gameScene game scene
+     * @param root game root
+     * @param primaryStage game stage
+     * @param endGameScene end game scene
+     * @param endGameRoot end game root
+     */
     public void startGame(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
         gameScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
@@ -156,7 +214,7 @@ public class GameScene {
                         haveEmptyCell = gameState.haveEmptyCell();
                         if (haveEmptyCell == -1) {
                             if (gameState.canNotMove()) {
-                                Account user = accountController.getUser();
+                                Account user = AccountController.getUser();
                                 if(score > user.getScore()) {
                                     try {
                                         user.updateScore(score);
@@ -178,7 +236,7 @@ public class GameScene {
                         }
                     }
                     case G -> {
-                        Account user = accountController.getUser();
+                        Account user = AccountController.getUser();
                         if(score > user.getScore()) {
                             try {
                                 user.updateScore(score);

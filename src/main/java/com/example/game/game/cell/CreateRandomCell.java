@@ -3,9 +3,19 @@ package com.example.game.game.cell;
 import com.example.game.game.GameScene;
 import javafx.scene.Group;
 import javafx.scene.text.Text;
-
 import java.util.Random;
 
+/**
+ *
+ * Create Random Cell class.
+ * Set random number (2/4) on new cell.
+ * Set random cell position.
+ *
+ * @author Kelly Kai Ling Tan-modified
+ * @version Nov 7, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class CreateRandomCell{
     private Group root;
     private TextMaker textMaker = TextMaker.getSingleInstance();
@@ -13,9 +23,11 @@ public class CreateRandomCell{
     Cell[][] cells = GameScene.getCell();
 
     /**
-     * create new cells
+     * Create new cell.
+     * Random set new cell's position.
+     * Calls randomFillNumber().
      *
-     * @param root Group root
+     * @param root Game root
      */
     public long createNewCell(Group root) {
         this.root = root;
@@ -47,7 +59,12 @@ public class CreateRandomCell{
     }
 
     /**
-     * randomly fill number on new cells
+     * Random fill number (2/4) on new cell.
+     *
+     * @param aForBound x-position of new cell
+     * @param bForBound y-position of new cell
+     * @param emptyCells cell array
+     * @return long random filled number (2/4)
      */
     private long randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
         Text text;

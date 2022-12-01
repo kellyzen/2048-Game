@@ -1,6 +1,6 @@
 package com.example.game.account;
 
-import com.example.game.menu.menuController;
+import com.example.game.menu.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +22,7 @@ import static java.util.Objects.isNull;
  * @author Coursework: COMP2042
  *
  */
-public class accountController {
+public class AccountController {
     @FXML TextField usernameField;
     private static Account user = null;
 
@@ -43,7 +43,7 @@ public class accountController {
      * @param user player's account
      */
     public static void setUser(Account user) {
-        accountController.user = user;
+        AccountController.user = user;
     }
 
     /**
@@ -60,7 +60,7 @@ public class accountController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
             Parent menuRoot = loader.load();
             //set username and score
-            menuController menu = loader.getController();
+            MenuController menu = loader.getController();
             menu.setUsernameLabel(user.getUsername());
             menu.setHighScoreLabel(user.getScore());
 

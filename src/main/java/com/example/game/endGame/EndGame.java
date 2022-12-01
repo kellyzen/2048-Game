@@ -1,12 +1,12 @@
 package com.example.game.endGame;
 
 import com.example.game.account.Account;
-import com.example.game.account.accountController;
+import com.example.game.account.AccountController;
 import com.example.game.components.buttonComponent.ButtonComponent;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.components.textComponent.TextComponent;
 import com.example.game.menu.Menu;
-import com.example.game.menu.menuController;
+import com.example.game.menu.MenuController;
 import com.example.game.theme.Theme;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -18,24 +18,26 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
  *
- * Shows when the game ended either game over.
- * Directs back to menu or quit game.
+ * EndGame class.
  *
  * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
  */
-
 public class EndGame {
     private static EndGame singleInstance = null;
     private EndGame(){
     }
+    /**
+     *
+     * Singleton design pattern for end game.
+     *
+     */
     public static EndGame getSingleInstance(){
         if(singleInstance == null)
             singleInstance= new EndGame();
@@ -44,15 +46,20 @@ public class EndGame {
 
     /**
      *
-     * create new text with specific font attributes and color
+     * Shows when the game ended.
+     * Display game score and highest tile.
+     * Display back to menu button and quit game button.
+     * Either directs back to menu or quit game.
      *
-     * @param endGameScene current scene
-     * @param root group root
+     * @param endGameScene end game scene
+     * @param root end game root
      * @param primaryStage current stage
-     * @param score current score of the game
+     * @param score score of the game played
+     * @param highestTile highest tile achieved
      *
      */
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score, long highestTile){
+        //set full screen and add css styling
         primaryStage.setFullScreen(true);
         endGameScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
 
@@ -87,7 +94,7 @@ public class EndGame {
         quitButton.setOnMouseClicked(event -> new QuitDialog());
 
         //direct back to menu page when menu button is clicked
-        menuButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        menuButton.setOnMouseClicked(new EventHandler<>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Menu menu = new Menu();
@@ -97,8 +104,8 @@ public class EndGame {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
                     menuRoot = loader.load();
                     //set username and score
-                    menuController menuController = loader.getController();
-                    Account user = accountController.getUser();
+                    MenuController menuController = loader.getController();
+                    Account user = AccountController.getUser();
                     menuController.setUsernameLabel(user.getUsername());
                     menuController.setHighScoreLabel(user.getScore());
                 } catch (IOException e) {

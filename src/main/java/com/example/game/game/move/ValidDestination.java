@@ -3,20 +3,30 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * ValidDestination class.
+ * Checks horizontal or vertical destination is valid.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class ValidDestination {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
 
     /**
      *
-     * checks if horizontal destination is correct
-     * returns true if horizontal destination is correct
-     * returns false if horizontal destination is not correct
+     * Checks if horizontal destination is correct.
+     * Returns true if horizontal destination is correct.
+     * Returns false if horizontal destination is not correct.
      *
      * @param i current row of the tile
      * @param j current column of the tile
      * @param des destination of the tile
-     * @param sign moves up/left (-1) or moves down/right (+1)
+     * @param sign moves left (-1) or moves right (+1)
      * @return boolean
      *
      */
@@ -32,14 +42,14 @@ public class ValidDestination {
 
     /**
      *
-     * checks if vertical destination is correct
-     * returns true if vertical destination is correct
-     * returns false if vertical destination is not correct
+     * Checks if vertical destination is correct.
+     * Returns true if vertical destination is correct.
+     * Returns false if vertical destination is not correct.
      *
      * @param i current row of the tile
      * @param j current column of the tile
      * @param des destination of the tile
-     * @param sign moves up/left (-1) or moves down/right (+1)
+     * @param sign moves up (-1) or moves down (+1)
      * @return boolean
      *
      */

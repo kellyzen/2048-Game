@@ -3,13 +3,23 @@ package com.example.game.game.move;
 import com.example.game.game.cell.Cell;
 import com.example.game.game.GameScene;
 
+/**
+ *
+ * Movement class.
+ * Either moves cell horizontally or vertically.
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class Movement {
     Cell[][] cells = GameScene.getCell();
     ValidDestination validDes = new ValidDestination();
 
     /**
      *
-     * moves the cell horizontally if horizontal move is valid
+     * Moves the cell horizontally if horizontal move is valid.
      *
      * @param i current row of the tile
      * @param j current column of the tile
@@ -28,7 +38,7 @@ public class Movement {
 
     /**
      *
-     * moves the cell vertically if vertical move is valid
+     * Moves the cell vertically if vertical move is valid.
      *
      * @param i current row of the tile
      * @param j current column of the tile
