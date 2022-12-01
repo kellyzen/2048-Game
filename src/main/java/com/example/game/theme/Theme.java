@@ -14,7 +14,7 @@ import javafx.scene.paint.Color;
  * @author Coursework: COMP2042
  *
  */
-public class Theme{
+public class Theme implements ITheme{
     private static final String path = "/com/example/game/styling/";
     private static String theme = path + "default.css";
     private static final String[] themeNames = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
@@ -22,6 +22,13 @@ public class Theme{
     public static String[] getThemeNames() {
         return themeNames;
     }
+
+    /**
+     *
+     * Get theme pathway from resource file.
+     *
+     * @return int theme pathway
+     */
     public static String getTheme() {
         return theme;
     }
@@ -121,31 +128,6 @@ public class Theme{
             case "Default" -> {
                 addTheme(node, "default.css");
                 newTheme("Default");
-            }
-        }
-    }
-
-    /**
-     *
-     * Change background scene colour for all scene when a theme is selected.
-     *
-     */
-    public void changeBackgroundScene() {
-        switch(theme){
-            case path+"dark.css" -> {
-                menuController.setBackgroundScene(Color.web("#373e43"));
-            }
-            case path+"light.css" -> {
-                menuController.setBackgroundScene(Color.web("#eee"));
-            }
-            case path+"fantasy.css" -> {
-                menuController.setBackgroundScene(Color.web("#D6B9F3"));
-            }
-            case path+"nymph.css" -> {
-                menuController.setBackgroundScene(Color.web("#5c9aaf"));
-            }
-            case path+"default.css" -> {
-                menuController.setBackgroundScene(Color.rgb(189, 177, 92));
             }
         }
     }
