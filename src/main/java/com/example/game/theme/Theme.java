@@ -31,6 +31,7 @@ public class Theme{
      * Change theme css path based on player's choice from dropdown.
      *
      * @param newTheme name of new theme
+     *
      */
     public void newTheme(String newTheme) {
         switch (newTheme) {
@@ -52,10 +53,53 @@ public class Theme{
         }
     }
 
+    /**
+     *
+     * Add selected theme css to the current root.
+     *
+     * @param node theme choice box value
+     * @param themeFile file name of the theme selected
+     *
+     */
     public void addTheme(ChoiceBox<String> node, String themeFile) {
         node.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/" + themeFile).toString());
     }
 
+    /**
+     *
+     * Remove specific theme css on the current root.
+     *
+     * @param node theme choice box value
+     * @param themeFile file name of the theme selected
+     *
+     */
+    private void removeTheme(ChoiceBox<String> node, String themeFile) {
+        node.getScene().getRoot().getStylesheets().remove(getClass().getResource("/com/example/game/styling/" + themeFile).toString());
+    }
+
+    /**
+     *
+     * Remove all theme css on the current root when new theme is selected.
+     * Call removeTheme().
+     *
+     * @param node theme choice box value
+     *
+     */
+    public void removeAllTheme(ChoiceBox<String> node) {
+        for (String theme : themeFiles) {
+            removeTheme(node, theme);
+        }
+    }
+
+    /**
+     *
+     * Change overall theme for all scene.
+     * Call addTheme() and newTheme();
+     *
+     * @param themeName name of theme selected
+     * @param node theme choice box value
+     *
+     */
     public void changeTheme(String themeName, ChoiceBox<String> node) {
         switch (themeName) {
             case "Dark" -> {
@@ -81,16 +125,11 @@ public class Theme{
         }
     }
 
-    public void removeAllTheme(ChoiceBox<String> node) {
-        for (String theme : themeFiles) {
-            removeTheme(node, theme);
-        }
-    }
-
-    private void removeTheme(ChoiceBox<String> node, String themeFile) {
-        node.getScene().getRoot().getStylesheets().remove(getClass().getResource("/com/example/game/styling/" + themeFile).toString());
-    }
-
+    /**
+     *
+     * Change background scene colour for all scene when a theme is selected.
+     *
+     */
     public void changeBackgroundScene() {
         switch(theme){
             case path+"dark.css" -> {
