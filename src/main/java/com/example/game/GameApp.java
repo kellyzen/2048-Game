@@ -1,5 +1,6 @@
 package com.example.game;
 
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.launch.LaunchController;
 import com.example.game.scene.menu.Menu;
 import javafx.application.Application;
@@ -30,7 +31,7 @@ public class GameApp extends Application {
             //launch game scene
             LaunchController launch = new LaunchController();
             launch.launch(primaryStage);
-            Parent launchRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/launch.fxml"));
+            Parent launchRoot = FXMLLoader.load(getClass().getResource(new ResourceDirectory().getResource("fxml","launch")));
             Scene launchScene = new Scene(launchRoot);
             primaryStage.setScene(launchScene);
 
@@ -39,7 +40,7 @@ public class GameApp extends Application {
             primaryStage.setResizable(false);
 
             //set icon
-            Image icon = new Image(getClass().getResourceAsStream("/com/example/game/images/icon.png"));
+            Image icon = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","icon")));
             primaryStage.getIcons().add(icon);
 
             primaryStage.show();
