@@ -17,11 +17,12 @@ public class Username {
      *
      * Check if player's username is valid.
      * Check username from player's input text field (usernameField).
-     * If username is valid ([3,15], no blank space, is letter or digit only), return true.
-     * If username is not valid (<3, >15, have blank space, have special char), return false.
+     * If username is valid, return true.
+     * If username is not valid, return false.
      *
      * @param username player's username
      * @return boolean
+     *
      */
     public static boolean usernameIsValid(String username) {
         // return true if the length of username is > 2 or <=15
@@ -45,18 +46,28 @@ public class Username {
 
     /**
      *
-     * Check if player's username is valid.
-     * Check username from player's input text field (usernameField).
-     * If username is valid ([3,15], no blank space, is letter or digit only), return true.
-     * If username is not valid (<3, >15, have blank space, have special char), return false.
+     * Check if username's length is valid.
+     * Return true if length < 15 and > 2.
+     * Return false if length > 16 and < 3.
      *
      * @param username player's username
      * @return boolean
+     *
      */
     private static boolean checkUsernameLength(String username) {
         return username.length() < 15 && username.length() > 2;
     }
 
+    /**
+     *
+     * Check if username's contain blank space.
+     * Return true if username don't have blank space.
+     * Return false if username have blank space.
+     *
+     * @param username player's username
+     * @return boolean
+     *
+     */
     private static boolean checkUsernameBlankSpace(String username) {
         for (int i = 0; i < username.length(); i++) {
             if (Character.isWhitespace(username.charAt(i))) {
@@ -66,6 +77,16 @@ public class Username {
         return true;
     }
 
+    /**
+     *
+     * Check if username's contain only letter or digit.
+     * Return true if username contain only letter or digit.
+     * Return false if username contain special character.
+     *
+     * @param username player's username
+     * @return boolean
+     *
+     */
     private static boolean checkUsernameCharacter(String username) {
         for (int i = 0; i < username.length(); i++) {
             if (!Character.isLetterOrDigit(username.charAt(i))) {
