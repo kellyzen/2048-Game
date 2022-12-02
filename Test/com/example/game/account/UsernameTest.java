@@ -13,50 +13,60 @@ class UsernameTest {
     @Nested
     class ValidUsername {
         @Test
-        @DisplayName("Username contains both digits and letters > 2 characters but < 16 characters")
-        void usernameOnlyDigitsAndLetters() {
-            assertTrue(Username.usernameIsValid("user123"));
+        @DisplayName("Username length > 2 characters only digits and letters")
+        void username3Char() {
+            assertTrue(Username.checkUsernameLength("123"));
+        }
+
+        @Test
+        @DisplayName("Username length < 15 characters only digits and letters")
+        void username15Char() {
+            assertTrue(Username.checkUsernameLength("user1234567890"));
         }
 
         @Test
         @DisplayName("Username contains only letters > 2 characters but < 16 characters")
         void usernameOnlyLetters() {
-            assertTrue(Username.usernameIsValid("user"));
+            assertTrue(Username.checkUsernameCharacter("user"));
         }
 
         @Test
         @DisplayName("Username contains only digits > 2 characters but < 16 characters")
         void usernameOnlyDigits() {
-            assertTrue(Username.usernameIsValid("123"));
+            assertTrue(Username.checkUsernameCharacter("123"));
+        }
+
+        @Test
+        @DisplayName("Username contains both digits and letters > 2 characters but < 16 characters without blank space")
+        void usernameIsValid() {
+            assertTrue(Username.usernameIsValid("user123"));
         }
     }
 
     @Nested
     class InvalidUsername {
         @Test
-        @DisplayName("Username contains special character")
+        @DisplayName("Username contains special character(s)")
         void usernameIsNotDigitOrLetters() {
-            assertFalse(Username.usernameIsValid("user#@"));
+            assertFalse(Username.checkUsernameCharacter("user#@"));
         }
 
         @Test
-        @DisplayName("Username < 3 characters")
+        @DisplayName("Username length < 3 characters")
         void username2Char() {
-            assertFalse(Username.usernameIsValid("01"));
+            assertFalse(Username.checkUsernameLength("01"));
         }
 
         @Test
-        @DisplayName("Username >15 characters")
+        @DisplayName("Username length >14 characters")
         void username16Char() {
-            assertFalse(Username.usernameIsValid("users01234567890"));
+            assertFalse(Username.checkUsernameLength("users1234567890"));
         }
 
         @Test
-        @DisplayName("Username >15 characters")
-        void usernameIsRunTime() {
-            Assertions.assertThrows(ExceptionInInitializerError.class, () -> {
-                Username.usernameIsValid("users01234567890");
-            });
+        @DisplayName("Username with blank space(s)")
+        void usernameBlankSpace() {
+            assertFalse(Username.checkUsernameBlankSpace("user name"));
         }
     }
 }

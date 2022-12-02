@@ -54,7 +54,7 @@ public class Username {
      * @return boolean
      *
      */
-    private static boolean checkUsernameLength(String username) {
+    public static boolean checkUsernameLength(String username) {
         return username.length() < 15 && username.length() > 2;
     }
 
@@ -68,7 +68,7 @@ public class Username {
      * @return boolean
      *
      */
-    private static boolean checkUsernameBlankSpace(String username) {
+    public static boolean checkUsernameBlankSpace(String username) {
         for (int i = 0; i < username.length(); i++) {
             if (Character.isWhitespace(username.charAt(i))) {
                 return false;
@@ -87,7 +87,7 @@ public class Username {
      * @return boolean
      *
      */
-    private static boolean checkUsernameCharacter(String username) {
+    public static boolean checkUsernameCharacter(String username) {
         for (int i = 0; i < username.length(); i++) {
             if (!Character.isLetterOrDigit(username.charAt(i))) {
                 return false;
@@ -103,7 +103,7 @@ public class Username {
      *
      * @param context context of warning dialog
      */
-    private static void usernameInvalidDialog(String context) {
+    public static void usernameInvalidDialog(String context) {
         WarningDialog warningDialog = new WarningDialog();
         warningDialog.createDialog("Warning Dialog", "Invalid username", context);
     }
