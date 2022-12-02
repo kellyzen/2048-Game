@@ -1,5 +1,7 @@
 package com.example.game.theme;
 
+import com.example.game.resource.ResourceDirectory;
+import com.example.game.resource.directory.ResourceStyling;
 import javafx.scene.control.ChoiceBox;
 
 /**
@@ -13,19 +15,25 @@ import javafx.scene.control.ChoiceBox;
  *
  */
 public class Theme implements ITheme{
-    private static final String path = "/com/example/game/styling/";
-    private static String theme = path + "default.css";
+    private static final String path = new ResourceStyling().getFolderPath();
+    private static String theme = new ResourceDirectory().getResource("css","default");
     private static final String[] themeNames = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
     private final String[] themeFiles = {"dark.css", "light.css", "fantasy.css", "nymph.css", "default.css"};
+    /**
+     *
+     * Get all theme filename.
+     *
+     * @return String[] array list of all theme names
+     */
     public static String[] getThemeNames() {
         return themeNames;
     }
 
     /**
      *
-     * Get theme pathway from resource file.
+     * Get theme pathway from resource folder.
      *
-     * @return int theme pathway
+     * @return String theme pathway
      */
     public static String getTheme() {
         return theme;
@@ -41,19 +49,19 @@ public class Theme implements ITheme{
     public void newTheme(String newTheme) {
         switch (newTheme) {
             case "Dark" -> {
-                theme = path + "dark.css";
+                theme = new ResourceDirectory().getResource("css","dark");
             }
             case "Light" -> {
-                theme = path + "light.css";
+                theme = new ResourceDirectory().getResource("css","light");
             }
             case "Fantasy" -> {
-                theme = path + "fantasy.css";
+                theme = new ResourceDirectory().getResource("css","fantasy");
             }
             case "Nymph" -> {
-                theme = path + "nymph.css";
+                theme = new ResourceDirectory().getResource("css","nymph");
             }
             case "Default" -> {
-                theme = path + "default.css";
+                theme = new ResourceDirectory().getResource("css","default");
             }
         }
     }
@@ -67,7 +75,7 @@ public class Theme implements ITheme{
      *
      */
     public void addTheme(ChoiceBox<String> node, String themeFile) {
-        node.getScene().getRoot().getStylesheets().add(getClass().getResource("/com/example/game/styling/" + themeFile).toString());
+        node.getScene().getRoot().getStylesheets().add(getClass().getResource(themeFile).toString());
     }
 
     /**
@@ -79,7 +87,7 @@ public class Theme implements ITheme{
      *
      */
     private void removeTheme(ChoiceBox<String> node, String themeFile) {
-        node.getScene().getRoot().getStylesheets().remove(getClass().getResource("/com/example/game/styling/" + themeFile).toString());
+        node.getScene().getRoot().getStylesheets().remove(getClass().getResource(path + themeFile).toString());
     }
 
     /**
@@ -108,23 +116,23 @@ public class Theme implements ITheme{
     public void changeTheme(String themeName, ChoiceBox<String> node) {
         switch (themeName) {
             case "Dark" -> {
-                addTheme(node, "dark.css");
+                addTheme(node, new ResourceDirectory().getResource("css","dark"));
                 newTheme("Dark");
             }
             case "Light" -> {
-                addTheme(node, "light.css");
+                addTheme(node, new ResourceDirectory().getResource("css","light"));
                 newTheme("Light");
             }
             case "Fantasy" -> {
-                addTheme(node, "fantasy.css");
+                addTheme(node, new ResourceDirectory().getResource("css","fantasy"));
                 newTheme("Fantasy");
             }
             case "Nymph" -> {
-                addTheme(node, "nymph.css");
+                addTheme(node, new ResourceDirectory().getResource("css","nymph"));
                 newTheme("Nymph");
             }
             case "Default" -> {
-                addTheme(node, "default.css");
+                addTheme(node, new ResourceDirectory().getResource("css","default"));
                 newTheme("Default");
             }
         }

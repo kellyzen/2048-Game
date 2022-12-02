@@ -1,8 +1,8 @@
 package com.example.game.account;
 
+import com.example.game.scene.account.Username;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import com.example.game.components.dialogComponent.WarningDialog;
 
 class UsernameTest {
     @BeforeAll
