@@ -21,7 +21,7 @@ public class FileHandler {
     static FileInputStream fileInput;
     static FileOutputStream fileOutput;
     static FileOutputStream fileWrite;
-    static String filePath = "src/main/resources/com/example/game/account/account.txt";
+    static String filePath = "src/main/resources/com/example/game/documents/account.txt";
 
     static {
         try {

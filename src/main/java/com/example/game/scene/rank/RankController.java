@@ -35,7 +35,7 @@ import java.util.Scanner;
  *
  */
 public class RankController implements Initializable{
-    static String filePath = "src/main/resources/com/example/game/account/account.txt";
+    static String filePath = "src/main/resources/com/example/game/documents/account.txt";
     static FileInputStream fileInput;
     Stage primaryStage;
     Scene menuScene;
