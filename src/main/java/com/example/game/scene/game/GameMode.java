@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
  * @author Coursework: COMP2042
  *
  */
-public class GameMode {
+public class GameMode implements IGameMode{
     private int mode = 1;
     private static int n = 4;
     private final int numOfMode = 4;
