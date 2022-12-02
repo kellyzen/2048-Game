@@ -1,5 +1,6 @@
 package com.example.game;
 
+import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.launch.LaunchController;
 import com.example.game.scene.menu.Menu;
@@ -44,6 +45,12 @@ public class GameApp extends Application {
             primaryStage.getIcons().add(icon);
 
             primaryStage.show();
+
+            //close window
+            primaryStage.setOnCloseRequest(event -> {
+                event.consume();
+                new QuitDialog();
+            });
 
         } catch (Exception e){
             e.printStackTrace();
