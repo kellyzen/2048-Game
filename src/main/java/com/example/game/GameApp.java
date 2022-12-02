@@ -1,7 +1,7 @@
 package com.example.game;
 
-import com.example.game.launch.LaunchController;
-import com.example.game.menu.Menu;
+import com.example.game.scene.launch.LaunchController;
+import com.example.game.scene.menu.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
