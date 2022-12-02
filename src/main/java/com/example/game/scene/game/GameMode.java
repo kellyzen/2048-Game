@@ -1,5 +1,6 @@
 package com.example.game.scene.game;
 
+import com.example.game.resource.ResourceDirectory;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,11 +19,10 @@ public class GameMode {
     private int mode = 1;
     private static int n = 4;
     private final int numOfMode = 4;
-    private final String path = "/com/example/game/images/";
-    Image tinyMode = new Image(getClass().getResourceAsStream(path+"tiny.png"));
-    Image classicMode = new Image(getClass().getResourceAsStream(path+"classic.png"));
-    Image largeMode = new Image(getClass().getResourceAsStream(path+"large.png"));
-    Image hugeMode = new Image(getClass().getResourceAsStream(path+"huge.png"));
+    Image tinyMode = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","tiny")));
+    Image classicMode = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","classic")));
+    Image largeMode = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","large")));
+    Image hugeMode = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","huge")));
 
     /**
      *
