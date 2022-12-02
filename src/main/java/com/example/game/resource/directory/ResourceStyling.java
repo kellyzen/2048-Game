@@ -15,4 +15,8 @@ public class ResourceStyling extends ResourcePath {
     public String getPath(String fileType, String fileName) {
         return generalPath() + folderName + fileName +"."+ fileType;
     }
+
+    public String getFolderPath() {
+        return generalPath() + folderName;
+    }
 }

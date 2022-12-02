@@ -1,5 +1,6 @@
 package com.example.game.scene.launch;
 
+import com.example.game.resource.ResourceDirectory;
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.fxml.FXML;
@@ -84,13 +85,13 @@ public class LaunchController implements Initializable {
     public void switchToAccount() {
         Parent accountRoot = null;
         try {
-            accountRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/account.fxml"));
+            accountRoot = FXMLLoader.load(getClass().getResource(new ResourceDirectory().getResource("fxml","account")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         Scene accountScene = new Scene(accountRoot);
         primaryStage.setScene(accountScene);
-        accountScene.getStylesheets().add(this.getClass().getResource("/com/example/game/styling/default.css").toExternalForm());
-        accountScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
+        accountScene.getStylesheets().add(this.getClass().getResource(new ResourceDirectory().getResource("css","default")).toExternalForm());
+        accountScene.getStylesheets().add(getClass().getResource(new ResourceDirectory().getResource("css","style")).toExternalForm());
     }
 }

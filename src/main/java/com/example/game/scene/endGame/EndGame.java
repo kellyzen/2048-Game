@@ -1,5 +1,6 @@
 package com.example.game.scene.endGame;
 
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.account.Account;
 import com.example.game.scene.account.AccountController;
 import com.example.game.components.buttonComponent.ButtonComponent;
@@ -61,7 +62,7 @@ public class EndGame {
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score, long highestTile){
         //set full screen and add css styling
         primaryStage.setFullScreen(true);
-        endGameScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
+        endGameScene.getStylesheets().add(getClass().getResource(new ResourceDirectory().getResource("css","style")).toExternalForm());
 
         //display header text
         Text headerText = new Text("GAME OVER");
@@ -101,7 +102,7 @@ public class EndGame {
                 menu.menu(primaryStage);
                 Parent menuRoot = null;
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(new ResourceDirectory().getResource("fxml","menu")));
                     menuRoot = loader.load();
                     //set username and score
                     MenuController menuController = loader.getController();

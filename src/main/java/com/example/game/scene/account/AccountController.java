@@ -1,5 +1,6 @@
 package com.example.game.scene.account;
 
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.menu.MenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,7 +58,7 @@ public class AccountController {
     public void switchToMenu(ActionEvent event) throws IOException {
         //if account created successfully then proceed to Menu
         if (checkAccount()){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(new ResourceDirectory().getResource("fxml","menu")));
             Parent menuRoot = loader.load();
             //set username and score
             MenuController menu = loader.getController();
@@ -68,8 +69,8 @@ public class AccountController {
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene menuScene = new Scene(menuRoot);
             primaryStage.setScene(menuScene);
-            menuScene.getStylesheets().add(this.getClass().getResource("/com/example/game/styling/default.css").toExternalForm());
-            menuScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
+            menuScene.getStylesheets().add(this.getClass().getResource(new ResourceDirectory().getResource("css","default")).toExternalForm());
+            menuScene.getStylesheets().add(getClass().getResource(new ResourceDirectory().getResource("css","style")).toExternalForm());
             primaryStage.setFullScreen(true);
             primaryStage.show();
         }

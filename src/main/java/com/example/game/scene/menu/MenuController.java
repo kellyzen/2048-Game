@@ -1,6 +1,7 @@
 package com.example.game.scene.menu;
 
 import com.example.game.components.dialogComponent.QuitDialog;
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.game.GameMode;
 import com.example.game.scene.game.GameScene;
 import com.example.game.theme.BackgroundScene;
@@ -148,7 +149,7 @@ public class MenuController implements Initializable {
      */
     public void switchToRank() throws IOException {
         String themePath = Theme.getTheme();
-        Parent rankRoot = FXMLLoader.load(getClass().getResource("/com/example/game/GUI/rank.fxml"));
+        Parent rankRoot = FXMLLoader.load(getClass().getResource(new ResourceDirectory().getResource("fxml","rank")));
         Scene rankScene = new Scene(rankRoot);
         rankRoot.getStylesheets().add(getClass().getResource(themePath).toString());
         primaryStage.setScene(rankScene);

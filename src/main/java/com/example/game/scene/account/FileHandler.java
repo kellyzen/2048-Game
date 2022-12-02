@@ -1,5 +1,6 @@
 package com.example.game.scene.account;
 
+import com.example.game.resource.ResourceDirectory;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,7 +22,7 @@ public class FileHandler {
     static FileInputStream fileInput;
     static FileOutputStream fileOutput;
     static FileOutputStream fileWrite;
-    static String filePath = "src/main/resources/com/example/game/documents/account.txt";
+    static String filePath = new ResourceDirectory().getResource("txt","account");
 
     static {
         try {

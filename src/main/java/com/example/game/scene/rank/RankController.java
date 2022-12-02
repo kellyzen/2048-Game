@@ -1,5 +1,6 @@
 package com.example.game.scene.rank;
 
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.account.AccountController;
 import com.example.game.scene.menu.MenuController;
 import com.example.game.theme.Theme;
@@ -35,7 +36,7 @@ import java.util.Scanner;
  *
  */
 public class RankController implements Initializable{
-    static String filePath = "src/main/resources/com/example/game/documents/account.txt";
+    static String filePath = new ResourceDirectory().getResource("txt","account");
     static FileInputStream fileInput;
     Stage primaryStage;
     Scene menuScene;
@@ -101,7 +102,7 @@ public class RankController implements Initializable{
      * @param event action event
      */
     public void switchToMenu(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/game/GUI/menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(new ResourceDirectory().getResource("fxml","menu")));
         menuRoot = loader.load();
         //set username and score
         MenuController menu = loader.getController();
@@ -114,7 +115,7 @@ public class RankController implements Initializable{
         menuScene = new Scene(menuRoot);
         primaryStage.setScene(menuScene);
         menuScene.getStylesheets().add(this.getClass().getResource(themePath).toExternalForm());
-        menuScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
+        menuScene.getStylesheets().add(getClass().getResource(new ResourceDirectory().getResource("css","style")).toExternalForm());
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
