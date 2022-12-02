@@ -18,7 +18,7 @@ import java.util.Scanner;
  * @author Coursework: COMP2042
  *
  */
-public class FileHandler {
+public class FileHandler{
     static FileInputStream fileInput;
     static FileOutputStream fileOutput;
     static FileOutputStream fileWrite;

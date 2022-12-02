@@ -16,7 +16,7 @@ import java.util.Random;
  * @author Coursework: COMP2042
  *
  */
-public class CreateRandomCell{
+public class CreateRandomCell implements NewCell{
     private Group root;
     private TextMaker textMaker = TextMaker.getSingleInstance();
     int n = GameScene.getN();
@@ -66,7 +66,7 @@ public class CreateRandomCell{
      * @param emptyCells cell array
      * @return long random filled number (2/4)
      */
-    private long randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
+    public long randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
         Text text;
         Random random = new Random();
         boolean putTwo = true;
