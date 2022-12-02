@@ -25,18 +25,14 @@ public class Username {
      */
     public static boolean usernameIsValid(String username) {
         // return true if the length of username is > 2 or <=15
-        if (username.length()<15 && username.length()>2){
-            for (int i = 0; i < username.length(); i++) {
-                // return false if the character is a white space
-                if (Character.isWhitespace(username.charAt(i))) {
-                    usernameInvalidDialog("Username should not contain space(s)");
-                    return false;
-                }
-                // return false if the character is neither a letter nor a digit
-                if (!Character.isLetterOrDigit(username.charAt(i))) {
-                    usernameInvalidDialog("Username must contain letters or digits only");
-                    return false;
-                }
+        if (checkUsernameLength(username)){
+            if(!checkUsernameBlankSpace(username)){
+                usernameInvalidDialog("Username should not contain space(s)");
+                return false;
+            }
+            if(!checkUsernameCharacter(username)){
+                usernameInvalidDialog("Username must contain letters or digits only");
+                return false;
             }
             return true;
         }
@@ -45,6 +41,38 @@ public class Username {
             usernameInvalidDialog("Username must be more than 2 and less than 15 characters");
             return false;
         }
+    }
+
+    /**
+     *
+     * Check if player's username is valid.
+     * Check username from player's input text field (usernameField).
+     * If username is valid ([3,15], no blank space, is letter or digit only), return true.
+     * If username is not valid (<3, >15, have blank space, have special char), return false.
+     *
+     * @param username player's username
+     * @return boolean
+     */
+    private static boolean checkUsernameLength(String username) {
+        return username.length() < 15 && username.length() > 2;
+    }
+
+    private static boolean checkUsernameBlankSpace(String username) {
+        for (int i = 0; i < username.length(); i++) {
+            if (Character.isWhitespace(username.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean checkUsernameCharacter(String username) {
+        for (int i = 0; i < username.length(); i++) {
+            if (!Character.isLetterOrDigit(username.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
