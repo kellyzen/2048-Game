@@ -20,7 +20,7 @@ class UsernameTest {
 
         @Test
         @DisplayName("Username length < 15 characters only digits and letters")
-        void username15Char() {
+        void username14Char() {
             assertTrue(Username.checkUsernameLength("user1234567890"));
         }
 
@@ -59,7 +59,7 @@ class UsernameTest {
 
         @Test
         @DisplayName("Username length >14 characters")
-        void username16Char() {
+        void username15Char() {
             assertFalse(Username.checkUsernameLength("users1234567890"));
         }
 
