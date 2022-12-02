@@ -19,15 +19,21 @@ public class Theme implements ITheme{
     private static String theme = new ResourceDirectory().getResource("css","default");
     private static final String[] themeNames = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
     private final String[] themeFiles = {"dark.css", "light.css", "fantasy.css", "nymph.css", "default.css"};
+    /**
+     *
+     * Get all theme filename.
+     *
+     * @return String[] array list of all theme names
+     */
     public static String[] getThemeNames() {
         return themeNames;
     }
 
     /**
      *
-     * Get theme pathway from resource file.
+     * Get theme pathway from resource folder.
      *
-     * @return int theme pathway
+     * @return String theme pathway
      */
     public static String getTheme() {
         return theme;
