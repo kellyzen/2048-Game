@@ -47,12 +47,7 @@ public class RankController implements Initializable{
     @FXML private TableView<Rank> rankTable;
     @FXML private TableColumn<Rank, Long> tHighScore;
     @FXML private TableColumn<Rank, String> tUsername;
-    @FXML Label usernameNo1;
-    @FXML Label usernameNo2;
-    @FXML Label usernameNo3;
-    @FXML Label highScoreNo1;
-    @FXML Label highScoreNo2;
-    @FXML Label highScoreNo3;
+    @FXML Label usernameNo1, highScoreNo1, usernameNo2, highScoreNo2, usernameNo3, highScoreNo3;
 
     static ObservableList<Rank> list = FXCollections.observableArrayList();
 

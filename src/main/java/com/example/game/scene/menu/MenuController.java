@@ -40,13 +40,10 @@ public class MenuController implements Initializable {
     private Group gameRoot = new Group();
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
     private static Color backgroundScene;
-    @FXML Label highScoreLabel;
-    @FXML Label usernameLabel;
+    @FXML Label highScoreLabel, usernameLabel, modeLabel;
     @FXML private ChoiceBox<String> menuChoiceBox;
     @FXML ImageView imageView;
-    @FXML Button nextButton;
-    @FXML Button prevButton;
-    @FXML Label modeLabel;
+    @FXML Button nextButton, prevButton;
     GameMode gameMode = new GameMode();
     private final String[] theme = Theme.getThemeNames();
 
