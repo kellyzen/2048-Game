@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -45,6 +47,13 @@ public class RankController implements Initializable{
     @FXML private TableView<Rank> rankTable;
     @FXML private TableColumn<Rank, Long> tHighScore;
     @FXML private TableColumn<Rank, String> tUsername;
+    @FXML Label usernameNo1;
+    @FXML Label usernameNo2;
+    @FXML Label usernameNo3;
+    @FXML Label highScoreNo1;
+    @FXML Label highScoreNo2;
+    @FXML Label highScoreNo3;
+
     static ObservableList<Rank> list = FXCollections.observableArrayList();
 
     // sort the Rank class by high score in ascending order
@@ -68,6 +77,21 @@ public class RankController implements Initializable{
         }
         FXCollections.sort(list, comparator);
         rankTable.setItems(list);
+        leaderBoard(list);
+    }
+
+    private void leaderBoard(ObservableList<Rank> leads) {
+        Rank rank1 = leads.get(0);
+        usernameNo1.setText(rank1.getUsername());
+        highScoreNo1.setText(String.valueOf(rank1.getHighScore()));
+
+        Rank rank2 = leads.get(1);
+        usernameNo2.setText(rank2.getUsername());
+        highScoreNo2.setText(String.valueOf(rank2.getHighScore()));
+
+        Rank rank3 = leads.get(2);
+        usernameNo3.setText(rank3.getUsername());
+        highScoreNo3.setText(String.valueOf(rank3.getHighScore()));
     }
 
     /**
