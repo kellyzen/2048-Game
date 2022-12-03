@@ -17,6 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -45,6 +47,8 @@ public class MenuController implements Initializable {
     @FXML ImageView imageView;
     @FXML Button nextButton, prevButton;
     GameMode gameMode = new GameMode();
+    Media media;
+    MediaPlayer mediaPlayer;
     private final String[] theme = Theme.getThemeNames();
 
     /**
