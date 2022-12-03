@@ -4,10 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.scene.rank.RankController">
@@ -20,12 +23,15 @@
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="900.0">
             <children>
-                <TableView fx:id="rankTable" layoutX="73.0" layoutY="265.0" prefHeight="241.0" prefWidth="735.0">
+                <TableView fx:id="rankTable" layoutX="73.0" layoutY="271.0" prefHeight="246.0" prefWidth="735.0">
                     <columns>
                         <TableColumn fx:id="tUsername" prefWidth="430.6667022705078" text="Username" />
                         <TableColumn fx:id="tHighScore" prefWidth="302.66667683919275" text="High Score" />
                     </columns>
                 </TableView>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="73.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="570.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="322.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
                 <Label alignment="CENTER" layoutX="73.0" layoutY="25.0" text="User Rank">
                     <font>
                         <Font name="Tw Cen MT Bold" size="56.0" />
@@ -36,36 +42,51 @@
                         <Font name="Tw Cen MT" size="19.0" />
                     </font>
                 </Button>
-            <Label fx:id="usernameNo1" layoutX="372.0" layoutY="172.0" text="1st Username">
+            <Label fx:id="usernameNo1" layoutX="161.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="1st Username">
                <font>
                   <Font name="Tw Cen MT Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="usernameNo2" layoutX="220.0" layoutY="116.0" text="2nd Username">
+            <Label fx:id="usernameNo2" layoutX="409.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="2nd Username">
                <font>
                   <Font name="Tw Cen MT Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="usernameNo3" layoutX="489.0" layoutY="130.0" text="3rd Username">
+            <Label fx:id="usernameNo3" layoutX="658.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="3rd Username">
                <font>
                   <Font name="Tw Cen MT Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="highScoreNo1" layoutX="395.0" layoutY="200.0" text="1st HighScore">
+            <Label fx:id="highScoreNo1" layoutX="161.0" layoutY="138.0" text="1st HighScore">
                <font>
                   <Font name="Tw Cen MT Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="highScoreNo2" layoutX="247.0" layoutY="148.0" text="2nd HighScore">
+            <Label fx:id="highScoreNo2" layoutX="409.0" layoutY="138.0" text="2nd HighScore">
                <font>
                   <Font name="Tw Cen MT Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="highScoreNo3" layoutX="514.0" layoutY="162.0" text="3rd HighScore">
+            <Label fx:id="highScoreNo3" layoutX="658.0" layoutY="138.0" text="3rd HighScore">
                <font>
                   <Font name="Tw Cen MT Bold" size="16.0" />
                </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="86.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="334.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="583.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank3.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>

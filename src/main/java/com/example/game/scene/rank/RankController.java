@@ -75,6 +75,13 @@ public class RankController implements Initializable{
         leaderBoard(list);
     }
 
+    /**
+     *
+     * Show username and high score for top 3 players.
+     *
+     * @param leads ObservableList<Rank> sorted array list of players
+     *
+     */
     private void leaderBoard(ObservableList<Rank> leads) {
         Rank rank1 = leads.get(0);
         usernameNo1.setText(rank1.getUsername());
