@@ -6,23 +6,42 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import java.net.URL;
 
+/**
+ *
+ * AudioPlayer class.
+ * Play audio from bgm resource folder
+ *
+ * @author Kelly Kai Ling Tan
+ * @version Dec 16, 2022
+ * @author Coursework: COMP2042
+ *
+ */
 public class AudioPlayer {
     static URL resource = AudioPlayer.class.getResource(new ResourceDirectory().getResource("mp3","Clean and Dance - An Jone"));
     static Media media = new Media(resource.toString());
 
     static MediaPlayer mediaPlayer = new MediaPlayer(media);
 
+    /**
+     *
+     * get the Media Player (bgm) played
+     *
+     * @return mediaPlayer
+     *
+     */
     public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }
 
+    /**
+     *
+     * Play audio infinitely.
+     * Set volume to 0.5
+     *
+     */
     public static void playAudio () {
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
         mediaPlayer.play();
         mediaPlayer.setVolume(0.5);
-    }
-
-    public void changeAudioVolume () {
-        mediaPlayer.play();
     }
 }
