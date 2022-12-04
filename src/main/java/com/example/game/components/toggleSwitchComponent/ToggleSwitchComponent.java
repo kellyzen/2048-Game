@@ -51,11 +51,13 @@ public class ToggleSwitchComponent extends HBox {
             if (c) {
                 label.setText("ON");
                 setStyle("-fx-background-color: green;");
+                setOpacity(0.7);
                 label.toFront();
             }
             else {
                 label.setText("OFF");
                 setStyle("-fx-background-color: grey;");
+                setOpacity(0.7);
                 button.toFront();
             }
         });

@@ -4,10 +4,14 @@ import com.example.game.audio.AudioPlayer;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.components.toggleSwitchComponent.ToggleSwitchComponent;
 import com.example.game.resource.ResourceDirectory;
+import com.example.game.scene.game.GameDifficulty;
 import com.example.game.scene.game.GameMode;
 import com.example.game.scene.game.GameScene;
 import com.example.game.theme.BackgroundScene;
 import com.example.game.theme.Theme;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +29,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -126,7 +131,12 @@ public class MenuController implements Initializable {
         volumeSlider.valueProperty().addListener((arg01, arg11, arg2) -> AudioPlayer.getMediaPlayer().setVolume(volumeSlider.getValue() * 0.01));
 
         //toggleSwitch
+        new GameDifficulty().setDifficulty(false);
         ToggleSwitchComponent toggleSwitch = new ToggleSwitchComponent();
+        SimpleBooleanProperty toggleOn = toggleSwitch.switchOnProperty();
+        toggleOn.addListener((observable, oldValue, newValue) -> {
+            new GameDifficulty().setDifficulty(newValue);
+        });
         toggleSwitchPane.getChildren().add(toggleSwitch);
     }
 

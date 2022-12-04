@@ -182,8 +182,7 @@ public class GameScene {
         long cell2 = newCell.createNewCell(root);
         setHighestTile(Math.max(cell1, cell2));
 
-        /////////////////////////////////////////////////////////////////////////////////
-        new GameDifficulty().setDifficulty(true);
+        new GameDifficulty().changeDifficulty();
 
         //detects any key pressed
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
@@ -233,7 +232,7 @@ public class GameScene {
                                 score = 0;
                             }
                         } else if(haveEmptyCell == 1) {
-                            new GameDifficulty().setDifficulty(true);
+                            new GameDifficulty().changeDifficulty();
                             newCell.createNewCell(root);
                         } else if(haveEmptyCell == 0) {
                             new CongratulationDialog();
