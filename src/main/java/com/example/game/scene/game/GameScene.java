@@ -1,5 +1,6 @@
 package com.example.game.scene.game;
 
+import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.account.Account;
 import com.example.game.scene.account.AccountController;
 import com.example.game.components.dialogComponent.CongratulationDialog;
@@ -139,7 +140,7 @@ public class GameScene {
      */
     public void startGame(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
-        gameScene.getStylesheets().add(getClass().getResource("/com/example/game/styling/style.css").toExternalForm());
+        gameScene.getStylesheets().add(getClass().getResource(new ResourceDirectory().getResource("css","style")).toExternalForm());
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -180,6 +181,9 @@ public class GameScene {
         long cell1 = newCell.createNewCell(root);
         long cell2 = newCell.createNewCell(root);
         setHighestTile(Math.max(cell1, cell2));
+
+        //set game difficulty
+        new GameDifficulty().changeDifficulty();
 
         //detects any key pressed
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
@@ -229,10 +233,10 @@ public class GameScene {
                                 score = 0;
                             }
                         } else if(haveEmptyCell == 1) {
+                            new GameDifficulty().changeDifficulty();
                             newCell.createNewCell(root);
                         } else if(haveEmptyCell == 0) {
                             new CongratulationDialog();
-                            score = 0;
                         }
                     }
                     case G -> {

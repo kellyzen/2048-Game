@@ -2,11 +2,16 @@ package com.example.game.scene.menu;
 
 import com.example.game.audio.AudioPlayer;
 import com.example.game.components.dialogComponent.QuitDialog;
+import com.example.game.components.toggleSwitchComponent.ToggleSwitchComponent;
 import com.example.game.resource.ResourceDirectory;
+import com.example.game.scene.game.GameDifficulty;
 import com.example.game.scene.game.GameMode;
 import com.example.game.scene.game.GameScene;
 import com.example.game.theme.BackgroundScene;
 import com.example.game.theme.Theme;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +24,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -47,6 +54,7 @@ public class MenuController implements Initializable {
     @FXML ImageView imageView;
     @FXML Button nextButton, prevButton;
     @FXML private Slider volumeSlider;
+    @FXML Pane toggleSwitchPane;
     GameMode gameMode = new GameMode();
     private final String[] theme = Theme.getThemeNames();
 
@@ -113,13 +121,23 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        //menuChoiceBox
         menuChoiceBox.setValue(Theme.getCurrentTheme());
         menuChoiceBox.getItems().addAll(theme);
         menuChoiceBox.setOnAction(this::changeTheme);
 
+        //volumeSlider
         volumeSlider.setValue(AudioPlayer.getMediaPlayer().getVolume() * 100);
         volumeSlider.valueProperty().addListener((arg01, arg11, arg2) -> AudioPlayer.getMediaPlayer().setVolume(volumeSlider.getValue() * 0.01));
 
+        //toggleSwitch
+        new GameDifficulty().setDifficulty(false);
+        ToggleSwitchComponent toggleSwitch = new ToggleSwitchComponent();
+        SimpleBooleanProperty toggleOn = toggleSwitch.switchOnProperty();
+        toggleOn.addListener((observable, oldValue, newValue) -> {
+            new GameDifficulty().setDifficulty(newValue);
+        });
+        toggleSwitchPane.getChildren().add(toggleSwitch);
     }
 
     /**

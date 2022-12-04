@@ -113,7 +113,7 @@ public class Cell {
         rectangle.setHeight(scale);
         rectangle.setWidth(scale);
         this.root = root;
-        rectangle.setFill(Color.rgb(224, 226, 226, 0.7));
+        rectangle.setFill(Color.rgb(224, 226, 226, 0.3));
         this.textClass = TextMaker.getSingleInstance().madeText("0", x, y, root);
         root.getChildren().add(rectangle);
     }
@@ -179,45 +179,24 @@ public class Cell {
      */
     void setColorByNumber(int number) {
         switch (number) {
-            case 0:
-                rectangle.setFill(Color.rgb(224, 226, 226, 0.3));
-                break;
-            case 2:
-                rectangle.setFill(Color.rgb(232, 250, 150, 0.3));
-                break;
-            case 4:
-                rectangle.setFill(Color.rgb(232, 250, 100, 0.5));
-                break;
-            case 8:
-                rectangle.setFill(Color.rgb(232, 220, 50, 0.5));
-                break;
-            case 16:
-                rectangle.setFill(Color.rgb(232, 170, 44, 0.5));
-                break;
-            case 32:
-                rectangle.setFill(Color.rgb(180, 120, 44, 0.5));
-                break;
-            case 64:
-                rectangle.setFill(Color.rgb(180, 100, 44, 0.5));
-                break;
-            case 128:
-                rectangle.setFill(Color.rgb(180, 80, 44, 0.5));
-                break;
-            case 256:
-                rectangle.setFill(Color.rgb(180, 60, 44, 0.5));
-                break;
-            case 512:
-                rectangle.setFill(Color.rgb(180, 40, 44, 0.3));
-                break;
-            case 1024:
-                rectangle.setFill(Color.rgb(250, 20, 44, 0.3));
-                break;
-            case 2048:
-                rectangle.setFill(Color.rgb(250,10,44,0.3));
-                break;
-            default:
-                rectangle.setFill(Color.rgb(250,0,0,0.3));
+            case 0 -> rectangle.setFill(Color.rgb(224, 226, 226, 0.3));
+            case 2 -> rectangle.setFill(Color.rgb(232, 250, 150, 0.3));
+            case 4 -> rectangle.setFill(Color.rgb(232, 250, 100, 0.5));
+            case 8 -> rectangle.setFill(Color.rgb(232, 220, 50, 0.5));
+            case 16 -> rectangle.setFill(Color.rgb(232, 170, 44, 0.5));
+            case 32 -> rectangle.setFill(Color.rgb(180, 120, 44, 0.5));
+            case 64 -> rectangle.setFill(Color.rgb(180, 100, 44, 0.5));
+            case 128 -> rectangle.setFill(Color.rgb(180, 80, 44, 0.5));
+            case 256 -> rectangle.setFill(Color.rgb(180, 60, 44, 0.5));
+            case 512 -> rectangle.setFill(Color.rgb(180, 40, 44, 0.3));
+            case 1024 -> rectangle.setFill(Color.rgb(250, 20, 44, 0.3));
+            case 2048 -> rectangle.setFill(Color.rgb(250, 10, 44, 0.3));
+            default -> rectangle.setFill(Color.rgb(250, 0, 0, 0.3));
         }
+    }
+
+    public void setColorByDifficulty() {
+        rectangle.setFill(Color.rgb(250, 250, 250, 1));
     }
 
 }
