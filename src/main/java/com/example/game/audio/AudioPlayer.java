@@ -25,7 +25,7 @@ public class AudioPlayer implements com.example.game.audio.MediaPlayer {
 
     /**
      *
-     * get the Media Player (bgm) played
+     * Get the Media Player (bgm) played
      *
      * @return mediaPlayer
      *

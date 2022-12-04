@@ -113,6 +113,7 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        menuChoiceBox.setValue(Theme.getCurrentTheme());
         menuChoiceBox.getItems().addAll(theme);
         menuChoiceBox.setOnAction(this::changeTheme);
 
