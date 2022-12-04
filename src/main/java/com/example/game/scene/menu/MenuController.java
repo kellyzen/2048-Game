@@ -1,5 +1,6 @@
 package com.example.game.scene.menu;
 
+import com.example.game.audio.AudioPlayer;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.game.GameMode;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -40,13 +42,11 @@ public class MenuController implements Initializable {
     private Group gameRoot = new Group();
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
     private static Color backgroundScene;
-    @FXML Label highScoreLabel;
-    @FXML Label usernameLabel;
+    @FXML Label highScoreLabel, usernameLabel, modeLabel;
     @FXML private ChoiceBox<String> menuChoiceBox;
     @FXML ImageView imageView;
-    @FXML Button nextButton;
-    @FXML Button prevButton;
-    @FXML Label modeLabel;
+    @FXML Button nextButton, prevButton;
+    @FXML private Slider volumeSlider;
     GameMode gameMode = new GameMode();
     private final String[] theme = Theme.getThemeNames();
 
@@ -103,6 +103,23 @@ public class MenuController implements Initializable {
      */
     public static void setBackgroundScene(Color backgroundScene) {
         MenuController.backgroundScene = backgroundScene;
+    }
+
+    /**
+     *
+     * Initialize actions for menuChoiceBox to change theme colour.
+     * Initialize actions for volumeSlider to change bgm volume.
+     *
+     */
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        menuChoiceBox.setValue(Theme.getCurrentTheme());
+        menuChoiceBox.getItems().addAll(theme);
+        menuChoiceBox.setOnAction(this::changeTheme);
+
+        volumeSlider.setValue(AudioPlayer.getMediaPlayer().getVolume() * 100);
+        volumeSlider.valueProperty().addListener((arg01, arg11, arg2) -> AudioPlayer.getMediaPlayer().setVolume(volumeSlider.getValue() * 0.01));
+
     }
 
     /**
@@ -165,18 +182,6 @@ public class MenuController implements Initializable {
      */
     public void quitGame() {
         new QuitDialog();
-    }
-
-    /**
-     *
-     * Initialize actions for menuChoiceBox to change theme colour.
-     *
-     */
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        menuChoiceBox.getItems().addAll(theme);
-        menuChoiceBox.setOnAction(this::changeTheme);
-
     }
 
     /**

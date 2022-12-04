@@ -1,9 +1,6 @@
 package com.example.game.resource;
 
-import com.example.game.resource.directory.ResourceDocuments;
-import com.example.game.resource.directory.ResourceGUI;
-import com.example.game.resource.directory.ResourceImages;
-import com.example.game.resource.directory.ResourceStyling;
+import com.example.game.resource.directory.*;
 
 /**
  *
@@ -38,6 +35,9 @@ public class ResourceDirectory {
         }
         if(getDocumentsDirectory (fileType, fileName) !=null) {
             return getDocumentsDirectory (fileType, fileName);
+        }
+        if(getBgmDirectory (fileType, fileName) !=null) {
+            return getBgmDirectory (fileType, fileName);
         }
         return null;
     }
@@ -113,6 +113,25 @@ public class ResourceDirectory {
         for (String type: fileTypes) {
             if(type.equalsIgnoreCase(fileType)){
                 return new ResourceDocuments().getPath(fileType,fileName);
+            }
+        }
+        return null;
+    }
+
+    /**
+     *
+     * Get URI to bgm directory from resource folder.
+     * Load the bgm file based on filename if exists.
+     *
+     * @param fileName file name to be loaded
+     * @param fileType file type to be loaded
+     * @return String URI to the file requested
+     */
+    private String getBgmDirectory (String fileType, String fileName) {
+        String[] fileTypes = new ResourceBgm().getFileTypes();
+        for (String type: fileTypes) {
+            if(type.equalsIgnoreCase(fileType)){
+                return new ResourceBgm().getPath(fileType,fileName);
             }
         }
         return null;

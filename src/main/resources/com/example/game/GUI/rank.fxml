@@ -4,43 +4,90 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../styling/default.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.scene.rank.RankController">
-   <children>
-      <GridPane alignment="CENTER" prefHeight="600.0" prefWidth="900.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <TableView fx:id="rankTable" layoutX="73.0" layoutY="95.0" prefHeight="411.0" prefWidth="735.0">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.scene.rank.RankController">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <TableView fx:id="rankTable" layoutX="73.0" layoutY="271.0" prefHeight="246.0" prefWidth="735.0">
                     <columns>
-                      <TableColumn fx:id="tUsername" prefWidth="416.0" text="Username" />
-                      <TableColumn fx:id="tHighScore" prefWidth="262.0" text="High Score" />
+                        <TableColumn fx:id="tUsername" prefWidth="430.6667022705078" text="Username" />
+                        <TableColumn fx:id="tHighScore" prefWidth="302.66667683919275" text="High Score" />
                     </columns>
-                  </TableView>
-                  <Label layoutX="73.0" layoutY="25.0" text="User Rank">
-                     <font>
+                </TableView>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="73.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="570.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" height="180.0" layoutX="322.0" layoutY="85.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="238.0" />
+                <Label alignment="CENTER" layoutX="73.0" layoutY="25.0" text="User Rank">
+                    <font>
                         <Font name="Tw Cen MT Bold" size="56.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="658.0" layoutY="523.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="43.0" prefWidth="150.0" text="Back To Menu">
-                     <font>
+                    </font>
+                </Label>
+                <Button layoutX="658.0" layoutY="523.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="43.0" prefWidth="150.0" text="Back To Menu">
+                    <font>
                         <Font name="Tw Cen MT" size="19.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
-   </children>
-</AnchorPane>
+                    </font>
+                </Button>
+            <Label fx:id="usernameNo1" layoutX="161.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="1st Username">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameNo2" layoutX="409.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="2nd Username">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameNo3" layoutX="658.0" layoutY="161.0" prefHeight="28.0" prefWidth="150.0" text="3rd Username">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="highScoreNo1" layoutX="161.0" layoutY="138.0" text="1st HighScore">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="highScoreNo2" layoutX="409.0" layoutY="138.0" text="2nd HighScore">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="highScoreNo3" layoutX="658.0" layoutY="138.0" text="3rd HighScore">
+               <font>
+                  <Font name="Tw Cen MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="86.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="334.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="583.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rank3.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

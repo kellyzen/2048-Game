@@ -31,8 +31,7 @@ import java.util.ResourceBundle;
 public class LaunchController implements Initializable {
     private static Stage primaryStage;
     @FXML private ImageView logo;
-    @FXML private Label title;
-    @FXML private Label credit;
+    @FXML private Label title, credit;
     @FXML private Button playButton;
 
     /**

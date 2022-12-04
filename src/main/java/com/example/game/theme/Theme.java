@@ -19,6 +19,18 @@ public class Theme implements ITheme{
     private static String theme = new ResourceDirectory().getResource("css","default");
     private static final String[] themeNames = {"Dark", "Light", "Fantasy", "Nymph", "Default"};
     private final String[] themeFiles = {"dark.css", "light.css", "fantasy.css", "nymph.css", "default.css"};
+    private static String currentTheme = "Default";
+
+    /**
+     *
+     * Get current game theme's name.
+     *
+     * @return String current theme's name
+     */
+    public static String getCurrentTheme() {
+        return currentTheme;
+    }
+
     /**
      *
      * Get all theme filename.
@@ -114,6 +126,7 @@ public class Theme implements ITheme{
      *
      */
     public void changeTheme(String themeName, ChoiceBox<String> node) {
+        currentTheme = themeName;
         switch (themeName) {
             case "Dark" -> {
                 addTheme(node, new ResourceDirectory().getResource("css","dark"));
