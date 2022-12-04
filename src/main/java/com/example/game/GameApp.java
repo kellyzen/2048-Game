@@ -1,5 +1,6 @@
 package com.example.game;
 
+import com.example.game.audio.AudioPlayer;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.launch.LaunchController;
@@ -43,6 +44,9 @@ public class GameApp extends Application {
             //set icon
             Image icon = new Image(getClass().getResourceAsStream(new ResourceDirectory().getResource("png","icon")));
             primaryStage.getIcons().add(icon);
+
+            //start bgm
+            AudioPlayer.playAudio();
 
             primaryStage.show();
 

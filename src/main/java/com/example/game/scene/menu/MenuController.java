@@ -1,5 +1,6 @@
 package com.example.game.scene.menu;
 
+import com.example.game.audio.AudioPlayer;
 import com.example.game.components.dialogComponent.QuitDialog;
 import com.example.game.resource.ResourceDirectory;
 import com.example.game.scene.game.GameMode;
@@ -16,9 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -46,9 +46,8 @@ public class MenuController implements Initializable {
     @FXML private ChoiceBox<String> menuChoiceBox;
     @FXML ImageView imageView;
     @FXML Button nextButton, prevButton;
+    @FXML private Slider volumeSlider;
     GameMode gameMode = new GameMode();
-    Media media;
-    MediaPlayer mediaPlayer;
     private final String[] theme = Theme.getThemeNames();
 
     /**
@@ -104,6 +103,22 @@ public class MenuController implements Initializable {
      */
     public static void setBackgroundScene(Color backgroundScene) {
         MenuController.backgroundScene = backgroundScene;
+    }
+
+    /**
+     *
+     * Initialize actions for menuChoiceBox to change theme colour.
+     * Initialize actions for volumeSlider to change bgm volume.
+     *
+     */
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        menuChoiceBox.getItems().addAll(theme);
+        menuChoiceBox.setOnAction(this::changeTheme);
+
+        volumeSlider.setValue(AudioPlayer.getMediaPlayer().getVolume() * 100);
+        volumeSlider.valueProperty().addListener((arg01, arg11, arg2) -> AudioPlayer.getMediaPlayer().setVolume(volumeSlider.getValue() * 0.01));
+
     }
 
     /**
@@ -166,18 +181,6 @@ public class MenuController implements Initializable {
      */
     public void quitGame() {
         new QuitDialog();
-    }
-
-    /**
-     *
-     * Initialize actions for menuChoiceBox to change theme colour.
-     *
-     */
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        menuChoiceBox.getItems().addAll(theme);
-        menuChoiceBox.setOnAction(this::changeTheme);
-
     }
 
     /**
