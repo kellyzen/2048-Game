@@ -3,7 +3,7 @@ package com.example.game.scene.game;
 import com.example.game.scene.game.cell.Cell;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GameDifficulty {
+public class GameDifficulty implements IGameDifficulty {
     int n = GameScene.getN();
     Cell[][] cells = GameScene.getCell();
     private static boolean difficulty = false;
