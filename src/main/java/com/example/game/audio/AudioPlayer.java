@@ -9,14 +9,15 @@ import java.net.URL;
 /**
  *
  * AudioPlayer class.
- * Play audio from bgm resource folder
+ * Implements MediaPlayer interface.
+ * Play audio from bgm resource folder.
  *
  * @author Kelly Kai Ling Tan
  * @version Dec 16, 2022
  * @author Coursework: COMP2042
  *
  */
-public class AudioPlayer {
+public class AudioPlayer implements com.example.game.audio.MediaPlayer {
     static URL resource = AudioPlayer.class.getResource(new ResourceDirectory().getResource("mp3","Clean and Dance - An Jone"));
     static Media media = new Media(resource.toString());
 
@@ -39,7 +40,7 @@ public class AudioPlayer {
      * Set volume to 0.5
      *
      */
-    public static void playAudio () {
+    public void play() {
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
         mediaPlayer.play();
         mediaPlayer.setVolume(0.5);

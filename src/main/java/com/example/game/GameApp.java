@@ -46,7 +46,7 @@ public class GameApp extends Application {
             primaryStage.getIcons().add(icon);
 
             //start bgm
-            AudioPlayer.playAudio();
+            new AudioPlayer().play();
 
             primaryStage.show();
 
