@@ -182,6 +182,7 @@ public class GameScene {
         long cell2 = newCell.createNewCell(root);
         setHighestTile(Math.max(cell1, cell2));
 
+        //set game difficulty
         new GameDifficulty().changeDifficulty();
 
         //detects any key pressed
