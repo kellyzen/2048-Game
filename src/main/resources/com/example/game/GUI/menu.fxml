@@ -87,6 +87,12 @@
                   <Image url="@../images/volume_icon.png" />
                </image>
             </ImageView>
+            <Label contentDisplay="CENTER" layoutX="527.0" layoutY="91.0" prefHeight="29.0" prefWidth="83.0" text="Difficulty:">
+               <font>
+                  <Font name="Tw Cen MT" size="22.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="toggleSwitchPane" layoutX="614.0" layoutY="94.0" prefHeight="34.0" prefWidth="90.0" />
          </children>
       </AnchorPane>
    </children>
