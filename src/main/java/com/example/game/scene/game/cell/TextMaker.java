@@ -57,7 +57,7 @@ public class TextMaker {
         Text text = new Text(input);
         text.setFont(Font.font(fontSize));
         text.relocate((xCell + (1.2)* length / 7.0), (yCell + 2 * length / 7.0));
-        text.setFill(Color.WHITE);
+        text.setFill(Color.rgb(250, 250, 250, 0.7));
         return text;
     }
 

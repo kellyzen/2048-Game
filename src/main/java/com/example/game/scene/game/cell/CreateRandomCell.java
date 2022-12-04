@@ -69,9 +69,7 @@ public class CreateRandomCell implements NewCell{
     public long randomFillNumber(int aForBound, int bForBound, Cell[][] emptyCells) {
         Text text;
         Random random = new Random();
-        boolean putTwo = true;
-        if (random.nextInt() % 2 == 0)
-            putTwo = false;
+        boolean putTwo = random.nextInt() % 2 != 0;
         int xCell, yCell;
         xCell = random.nextInt(aForBound+1);
         yCell = random.nextInt(bForBound+1);
