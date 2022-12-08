@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"com.example.demo"}];updateSearchResults();
+moduleSearchIndex = [{"l":"com.example.game"}];updateSearchResults();
