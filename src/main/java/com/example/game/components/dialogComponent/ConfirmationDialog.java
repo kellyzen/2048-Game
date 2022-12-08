@@ -6,7 +6,7 @@ import java.util.Optional;
 
 /**
  *
- * ConfirmationDialog class.
+ * Create confirmation dialog.
  * Implements DialogComponent interface.
  *
  * @author Kelly Kai Ling Tan

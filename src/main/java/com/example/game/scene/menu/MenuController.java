@@ -34,7 +34,6 @@ import java.util.ResourceBundle;
 
 /**
  *
- * MenuController class.
  * Controller class for menu.fxml
  *
  * @author Kelly Kai Ling Tan

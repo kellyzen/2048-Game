@@ -4,7 +4,6 @@ import com.example.game.resource.ResourcePath;
 
 /**
  *
- * ResourceStyling class.
  * Extends ResourcePath class.
  * Get resource file in styling folder.
  *

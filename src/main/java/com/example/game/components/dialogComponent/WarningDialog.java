@@ -4,7 +4,7 @@ import javafx.scene.control.Alert;
 
 /**
  *
- * WarningDialog class.
+ * Create w arning dialog.
  * Implements DialogComponent interface.
  *
  * @author Kelly Kai Ling Tan

@@ -8,7 +8,6 @@ import javafx.scene.layout.HBox;
 
 /**
  *
- * ToggleSwitchComponent class.
  * Create toggle switch button.
  * Modified from https://gist.github.com/TheItachiUchiha/12e40a6f3af6e1eb6f75
  *

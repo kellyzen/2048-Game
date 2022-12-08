@@ -7,7 +7,6 @@ import java.util.Random;
 
 /**
  *
- * Create Random Cell class.
  * Set random number (2/4) on new cell.
  * Set random cell position.
  *

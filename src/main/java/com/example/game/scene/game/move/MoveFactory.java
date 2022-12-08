@@ -2,8 +2,7 @@ package com.example.game.scene.game.move;
 
 /**
  *
- * MoveFactory class.
- * Get moving direction (left/right/up/down).
+ * Get player's moving direction (left/right/up/down).
  *
  * @author Kelly Kai Ling Tan
  * @version Dec 16, 2022

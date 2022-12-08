@@ -5,7 +5,6 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * Movement class.
  * Either moves cell horizontally or vertically.
  *
  * @author Kelly Kai Ling Tan

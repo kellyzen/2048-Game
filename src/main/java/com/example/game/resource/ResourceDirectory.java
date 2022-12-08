@@ -4,7 +4,6 @@ import com.example.game.resource.directory.*;
 
 /**
  *
- * ResourceDirectory class.
  * Calls specific resource class based on fileType.
  *
  * @author Kelly Kai Ling Tan

@@ -5,7 +5,7 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * MoveLeft class.
+ * Moves cell leftward.
  * Implements Movable interface.
  *
  * @author Kelly Kai Ling Tan

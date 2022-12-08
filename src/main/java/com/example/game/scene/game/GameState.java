@@ -4,7 +4,6 @@ import com.example.game.scene.game.cell.Cell;
 
 /**
  *
- * GameState class.
  * Determine current game status (win/lose/on going).
  *
  * @author Kelly Kai Ling Tan

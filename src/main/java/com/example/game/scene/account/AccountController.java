@@ -15,7 +15,6 @@ import static java.util.Objects.isNull;
 
 /**
  *
- * AccountController class.
  * Controller class for account.fxml
  *
  * @author Kelly Kai Ling Tan

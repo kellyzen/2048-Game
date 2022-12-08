@@ -5,7 +5,6 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * BackgroundScene class.
  * Set game background colour based on theme chosen.
  *
  * @author Kelly Kai Ling Tan

@@ -2,7 +2,6 @@ package com.example.game.scene.game;
 
 /**
  *
- * IGameDifficulty interface.
  * Set and change game difficulty.
  *
  * @author Kelly Kai Ling Tan

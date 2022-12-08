@@ -8,7 +8,6 @@ import javafx.scene.text.Text;
 
 /**
  *
- * TextComponent class.
  * Style for all text's component.
  *
  * @author Kelly Kai Ling Tan

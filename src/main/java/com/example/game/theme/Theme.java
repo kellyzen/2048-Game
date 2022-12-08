@@ -6,7 +6,6 @@ import javafx.scene.control.ChoiceBox;
 
 /**
  *
- * Theme class.
  * Set overall game theme colour.
  *
  * @author Kelly Kai Ling Tan

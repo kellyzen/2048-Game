@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 /**
  *
- * Account class.
  * Saves/create player's account.
  * Saves player's new high score.
  *

@@ -2,7 +2,7 @@ package com.example.game.components.dialogComponent;
 
 /**
  *
- * CongratulationDialog class.
+ * Display congratulation messages.
  * Inherit ConfirmationDialog class.
  *
  * @author Kelly Kai Ling Tan

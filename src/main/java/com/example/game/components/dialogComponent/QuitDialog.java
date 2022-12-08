@@ -2,7 +2,7 @@ package com.example.game.components.dialogComponent;
 
 /**
  *
- * QuitDialog class.
+ * Display quit messages.
  * Inherit ConfirmationDialog class.
  *
  * @author Kelly Kai Ling Tan

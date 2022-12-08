@@ -5,7 +5,7 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * MoveRight class.
+ * Moves cell rightward.
  * Implements Movable interface.
  *
  * @author Kelly Kai Ling Tan

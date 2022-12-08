@@ -8,9 +8,8 @@ import java.net.URL;
 
 /**
  *
- * AudioPlayer class.
- * Implements MediaPlayer interface.
  * Play audio from bgm resource folder.
+ * Implements MediaPlayer interface.
  *
  * @author Kelly Kai Ling Tan
  * @version Dec 16, 2022

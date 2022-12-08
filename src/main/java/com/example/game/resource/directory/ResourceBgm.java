@@ -4,7 +4,6 @@ import com.example.game.resource.ResourcePath;
 
 /**
  *
- * ResourceBgm class.
  * Extends ResourcePath class.
  * Get resource file in bgm folder.
  *

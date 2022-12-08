@@ -5,7 +5,6 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * ValidDestination class.
  * Checks horizontal or vertical destination is valid.
  *
  * @author Kelly Kai Ling Tan

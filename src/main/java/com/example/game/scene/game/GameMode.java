@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 
 /**
  *
- * GameMode class.
  * Change the game mode.
  *
  * @author Kelly Kai Ling Tan

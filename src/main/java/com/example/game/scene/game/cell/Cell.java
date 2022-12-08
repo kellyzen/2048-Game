@@ -8,7 +8,6 @@ import javafx.scene.text.Text;
 
 /**
  *
- * Cell class.
  * Represents an individual cell in the game.
  * Set an integer value and color to each cell which will be changed when combined.
  *

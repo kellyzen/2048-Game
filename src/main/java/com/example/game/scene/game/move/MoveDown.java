@@ -5,7 +5,7 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * MoveDown class.
+ * Moves cell downward.
  * Implements Movable interface.
  *
  * @author Kelly Kai Ling Tan

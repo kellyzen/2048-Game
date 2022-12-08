@@ -5,7 +5,7 @@ import com.example.game.scene.game.GameScene;
 
 /**
  *
- * MoveUp class.
+ * Moves cell upward.
  * Implements Movable interface.
  *
  * @author Kelly Kai Ling Tan

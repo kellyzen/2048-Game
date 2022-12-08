@@ -6,7 +6,6 @@ import javafx.scene.text.Font;
 
 /**
  *
- * ButtonComponent class.
  * Style for all button's component.
  *
  * @author Kelly Kai Ling Tan

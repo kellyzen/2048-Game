@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 /**
  *
- * FileHandler class.
  * Read/write/update file (account.txt).
  *
  * @author Kelly Kai Ling Tan

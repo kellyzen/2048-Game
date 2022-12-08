@@ -29,7 +29,6 @@ import java.util.Scanner;
 
 /**
  *
- * RankController class.
  * Controller class for rank.fxml
  *
  * @author Kelly Kai Ling Tan

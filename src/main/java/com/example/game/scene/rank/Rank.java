@@ -2,7 +2,6 @@ package com.example.game.scene.rank;
 
 /**
  *
- * Rank class.
  * Set and display player's username  and high score
  *
  * @author Kelly Kai Ling Tan

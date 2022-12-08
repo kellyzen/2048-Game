@@ -21,7 +21,6 @@ import java.io.IOException;
 
 /**
  *
- * GameScene class.
  * Shows when the game started.
  *
  * @author Kelly Kai Ling Tan-modified

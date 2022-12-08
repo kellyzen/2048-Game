@@ -5,7 +5,6 @@ import com.example.game.resource.ResourcePath;
 
 /**
  *
- * ResourceGUI class.
  * Extends ResourcePath class.
  * Get resource file in GUI folder.
  *

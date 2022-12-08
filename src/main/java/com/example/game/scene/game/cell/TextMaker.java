@@ -8,7 +8,6 @@ import javafx.scene.text.Text;
 
 /**
  *
- * TextMaker class.
  * Create text with specific font attributes and color.
  *
  * @author Kelly Kai Ling Tan-modified

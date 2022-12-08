@@ -4,7 +4,6 @@ import com.example.game.resource.ResourcePath;
 
 /**
  *
- * ResourceDocuments class.
  * Extends ResourcePath class.
  * Get resource file in document folder.
  *

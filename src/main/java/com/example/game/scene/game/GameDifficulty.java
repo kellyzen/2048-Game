@@ -5,9 +5,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
- * GameDifficulty class.
- * Implements IGameDifficulty interface.
  * Set and change game difficulty.
+ * Implements IGameDifficulty interface.
  *
  * @author Kelly Kai Ling Tan
  * @version Dec 16, 2022

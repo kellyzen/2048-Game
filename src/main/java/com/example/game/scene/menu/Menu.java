@@ -4,7 +4,6 @@ import javafx.stage.Stage;
 
 /**
  *
- * Menu class.
  * Shows after account scene.
  *
  * @author Kelly Kai Ling Tan

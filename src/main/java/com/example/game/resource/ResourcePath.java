@@ -2,7 +2,7 @@ package com.example.game.resource;
 
 /**
  *
- * ResourcePath abstract class.
+ * Shows path to resources directory.
  *
  * @author Kelly Kai Ling Tan
  * @version Dec 16, 2022

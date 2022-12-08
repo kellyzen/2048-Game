@@ -23,7 +23,7 @@ import java.io.IOException;
 
 /**
  *
- * EndGame class.
+ * Display end game scene.
  *
  * @author Kelly Kai Ling Tan-modified
  * @version Dec 16, 2022

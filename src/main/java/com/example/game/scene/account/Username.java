@@ -4,7 +4,6 @@ import com.example.game.components.dialogComponent.WarningDialog;
 
 /**
  *
- * Username class.
  * Check player's username before start game.
  *
  * @author Kelly Kai Ling Tan

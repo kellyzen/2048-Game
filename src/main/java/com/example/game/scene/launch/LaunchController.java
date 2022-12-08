@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 
 /**
  *
- * LaunchController class.
  * Controller class for launch.fxml
  *
  * @author Kelly Kai Ling Tan
