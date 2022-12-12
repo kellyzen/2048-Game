@@ -7,7 +7,7 @@
 ### Downloading files
 3. Download _ALL_ the files and place it in "IdeaProjects" folder.
 ### Run 2048 Game
-4. Run GameApp.java ``src/main/java/com/example/game/GameApp.java``
+4. Run GameApp.java ``/src/main/java/com/example/game/GameApp.java``
 
 ## FEATURES
 ### Launch
@@ -127,8 +127,11 @@
 - TextMaker (class)
 
 ## UNIT TEST
-```Test/com/example/game/account```
+```/Test/com/example/game/account```
 - UsernameTest
+
+## JAVADOC
+```/javadoc/index.html```
 
 ## REFERENCES
 - [Theme styling](https://gist.github.com/genmancoder/146bad2111bfabed1b04d894926c83d8)
