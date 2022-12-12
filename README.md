@@ -12,38 +12,38 @@
 ## FEATURES
 ### Launch
 ![Launch Scene](readme/images/launch.png)
--[x] Click "PLAY" button to start game
+- [x] Click "PLAY" button to start game
 ### Login
 ![Login Scene](readme/images/login.png)
--[x] Enter username in textbox
--[x] "Clear" button to clear texts in textbox
--[x] "Submit" button to proceed to Menu
+- [x] Enter username in textbox
+- [x] "Clear" button to clear texts in textbox
+- [x] "Submit" button to proceed to Menu
 ### Menu
 ![Menu Scene](readme/images/menu.png)
--[x] Theme dropdown to change game theme colour (Dark, Light, Fantasy, Nymph, Default)
--[x] Difficulty toggle switch to on/off difficulty level
--[x] "<" or ">" button to change game mode (3x3, 4x4, 5x5, 6x6)
--[x] "Start Game" button to proceed to game
--[x] "Rank" button to view podium and rank table
--[x] "Quit" button to quit game
--[x] Slider to adjust bgm volume
--[ ] "Next" button to change bgm (not yet implement)
+- [x] Theme dropdown to change game theme colour (Dark, Light, Fantasy, Nymph, Default)
+- [x] Difficulty toggle switch to on/off difficulty level
+- [x] "<" or ">" button to change game mode (3x3, 4x4, 5x5, 6x6)
+- [x] "Start Game" button to proceed to game
+- [x] "Rank" button to view podium and rank table
+- [x] "Quit" button to quit game
+- [x] Slider to adjust bgm volume
+- [ ] "Next" button to change bgm (not yet implement)
 ### Rank
 ![Rank Scene](readme/images/rank.png)
--[x] Displays top 3 podium
--[x] Displays rank table
--[x] "Back To Menu" button to proceed to Menu
+- [x] Displays top 3 podium
+- [x] Displays rank table
+- [x] "Back To Menu" button to proceed to Menu
 ### Game
 ![Game Scene](readme/images/game.png)
--[x] Click AWSD or up/down/left/right key to move cells
--[x] Click 'G' key to end game
--[x] Displays high score and highest tile achieved
+- [x] Click AWSD or up/down/left/right key to move cells
+- [x] Click 'G' key to end game
+- [x] Displays high score and highest tile achieved
 ### End Game
-![End Game Scene](readme/images/end game.png)
--[x] Displays high score and highest tile achieved
--[x] "Quit" button to quit game
--[x] "Back To Menu" button to proceed to Menu
--[ ] "Replay" button to replay game (not yet implement)
+![End Game Scene](readme/images/end_game.png)
+- [x] Displays high score and highest tile achieved
+- [x] "Quit" button to quit game
+- [x] "Back To Menu" button to proceed to Menu
+- [ ] "Replay" button to replay game (not yet implement)
 
 ## PROGRAM'S STRUCTURE 
 ```src/main/java/com/example/game```
