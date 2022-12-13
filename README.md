@@ -1,8 +1,8 @@
 >Kelly Tan Kai Ling (20310184)
 # 2048 Game
 ## COMPILATION
-### Installing Java IDE (please proceed to the next section if you had done this)
-1. Download [IntelliJ](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/), [Netbeans](https://netbeans.apache.org/download/index.html) or any preferred Java IDE of your choice.
+### Installing Java IDE
+1. Download [IntelliJ](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/), [Netbeans](https://netbeans.apache.org/download/index.html) or any preferred IDE of your choice.
 2. Install the Java IDE using the downloaded installer along with JDK and direct the installation to your preferred path.
 ### Downloading files
 3. Download _ALL_ the files and place it in "IdeaProjects" folder.
@@ -44,6 +44,25 @@
 - [x] "Quit" button to quit game
 - [x] "Back To Menu" button to proceed to Menu
 - [ ] "Replay" button to replay game (not yet implement)
+
+## MAINTENANCE PERFORMED
+### Corrective maintenance:
+- Fixed incorrect score calculation
+- Fixed cell spawning on any key pressed
+### Preventive maintenance:
+- Split classes to individual packages based on similar functionality
+    - 'scene' package to store all scenes (launch, login, menu, rank, game, endGame)
+    - 'theme' package to store all themes
+    - 'components' package to store button, text, dialog, and toggle switch
+    - 'audio' package to store bgm
+- Break large classes to individual class/method 
+    - extract haveEmptyCell(), haveSameNumberNearly(), canNotMove() from GameScene to new GameState class
+- Apply design principle
+    - abstract factory pattern for move package by calling MoveUp/MoveDown/MoveLeft/MoveRight class through MoveFactory class
+    - adaptor pattern for resource package to direct to different resource path using only filename and filetpye
+### Perfective maintenance:
+- Added new features (rank, bgm, theme colour, game mode & difficulty)
+- Added game logo and title
 
 ## PROGRAM'S STRUCTURE 
 ```src/main/java/com/example/game```
@@ -114,7 +133,6 @@
 - BackgroundScene (class)
 
 ### Modified Java Classes & Packages
-```src/main/java/com/example/game```
 - GameApp (class)
 #### ``/scene/account``
 - Account (class)
